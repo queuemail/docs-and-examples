@@ -1,2 +1,2 @@
-# docs-and-samples
-QueueMail docs and samples
+# Documentation & examples
+QueueMail docs and examples
