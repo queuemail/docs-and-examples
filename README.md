@@ -1,2 +1,2 @@
 # docs-and-examples
-QUEUMAIL.DEV docs &amp; examples
+QUEUEMAIL.DEV docs &amp; examples
