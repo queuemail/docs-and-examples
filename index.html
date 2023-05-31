@@ -57,12 +57,15 @@
 </head>
 <body>
 
+  <noscript>This page requires JavaScript to work, please enable it or visit our GitHub repository <a href="https://github.com/queuemail/docs-and-examples">here</a>.</noscript>
+
+
   <nav>
     <a href="/">Home</a>
     <a target="_blank" style="font-weight:bold;color:#FF0000;" href="https://queuemail.dev/sign-up">Sign Up</a>
   </nav>
 
-  <div id="app"></div>
+  <div id="app">Loading...</div>
   
   <script>
     window.$docsify = {
@@ -112,11 +115,20 @@
 
   </script>
   <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <!--script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>    
 
 <!-- docsify-tabs (latest v1.x.x) -->
 <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
+<style>
+  blockquote:first-of-type {
+    background-color: rgba(235, 248, 242, 0.363);
+  }
+</style>
 
 </body>
 </html>
