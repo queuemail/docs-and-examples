@@ -1,4 +1,4 @@
-# SMTPs
+
 
 You can define one or more SMTPs asociated to an App. 
 

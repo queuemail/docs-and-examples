@@ -1,4 +1,4 @@
-# Login
+
 
 Use your username and password to get a bearer token you will use in all API operations.
 

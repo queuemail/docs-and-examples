@@ -1,4 +1,4 @@
-# Logs
+
 
 Using these endpoint you can manage email logs.
 

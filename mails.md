@@ -1,4 +1,4 @@
-# Mails
+
 
 Using these endpoint you can send (queue up) emails, get emails send information, cancel (dequeue) emails and remove a finished (sent) emails.
 
