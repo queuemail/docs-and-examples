@@ -52,6 +52,8 @@
     --docsifytabs-border-color: #ededed;
     --docsifytabs-tab-highlight-color: purple;
   }
+
+  .docsify-tabs__tab { cursor: pointer; }
 </style>
 
 </head>
@@ -69,10 +71,10 @@
   
   <script>
     window.$docsify = {
-      search: 'auto',
+    
       search: {
       maxAge: 86400000, // Expiration time, the default one day
-      paths: [], // or 'auto'
+      paths: 'auto', // or 'auto'
       placeholder: 'Type to search',
 
       // Localization
@@ -96,7 +98,8 @@
     },
     
       name: '',
-      repo: '',
+      repo: 'queuemail/docs-and-examples',
+      
       loadSidebar: true,
       autoHeader: true,
       alias: {
