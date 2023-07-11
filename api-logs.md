@@ -1,6 +1,6 @@
 
 
-Using these endpoint you can manage email logs.
+Using these endpoint you can get email logs.
 
 <!-- tabs:start -->
 

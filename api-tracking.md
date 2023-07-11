@@ -1,6 +1,6 @@
 
 
-Using these endpoint you can manage email tracking: opened emails and email link clicks.
+Using this endpoint you can manage email tracking: opened emails and email link clicks.
 
 <!-- tabs:start -->
 

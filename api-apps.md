@@ -1,5 +1,3 @@
-
-
 You need to create at least an app to use QUEUEMAIL. 
 
 Each app should correspond to a project or project part which has different behaviour.
@@ -17,8 +15,9 @@ Each app should correspond to a project or project part which has different beha
 |---------|-----------|--------|---------|
 |idapp | App id | Yes for editing, No for creating |  |
 |name | App name  | Yes for creating, No for editing |  |
+|retaindata | If this app must preserve subject, body and url attachments | No | No |
 |strategy | RANDOM / PRIORITY  | No  | RANDOM |
-|origindomain | If set, just requests from this domain work  | No  |
+|originserver | If set, you can make calls just from this servers/IPs (comma separated for multiple values) | No  |
 |defaultfromemail | Default from email when sending emails | No | User's email |
 |defaultfromname | Default from name when sending emails | No | User's email |
 |testemail | Recipient email for testing emails  | No | User's email |
@@ -30,7 +29,6 @@ Each app should correspond to a project or project part which has different beha
 |webhook_tracking_opened | URL called when mail is opened  | No |
 |webhook_tracking_clicked | URL called when when link in email is clicked | No |
 |webhook_blacklisted_added | URL called when mail address is added to blacklist | No |
-|webhook_mailing_finished | URL called when mailing is finished  | No |
 
 **STATUS CODES:**
 
@@ -48,6 +46,7 @@ Specific errors:
 1. Already exists an APP with the same name
 2. App not found
 3. Must provide a name
+4. You can choose between setting originserver (backend apps) or setting origindomain (frontend apps)
 
 
 
@@ -158,7 +157,7 @@ You will get a JSON response like this:
 Field **content** is a list containing all the existing apps for the logged account.
 
 
-<!-- tab:List an app -->
+<!-- tab:App info -->
 
 
 

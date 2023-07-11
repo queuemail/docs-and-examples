@@ -16,7 +16,7 @@ Using these endpoint you can send (queue up) emails, get emails send information
 |---------|-----------|--------|---------|
 |idapp | App id | Yes |  |
 |from | Email from address | No | App default from email |
-|fromname | Name from address | No | App default from name (for no system SMTPs) |
+|fromname | Name from address | No | App default from name  |
 |tos | Recipients email addresses (comma separeted)  | Yes  |  |
 |tonames | Recipients names (comma separated) | No | Recipients email addresses  |
 |ccs | Carbon copy recipients email addresses (comma separated) | No |  |
@@ -46,7 +46,8 @@ Using these endpoint you can send (queue up) emails, get emails send information
 Specific errors:
 
 1. App not found
-2. Remote host not allowed (App origin domain does not match)
+2. Remote server not allowed: xxxx
+3. Remote domain not allowed: xxxx
 3. No active SMTP for App
 4. Sender domain does not exist
 5. Cannot use includetracking=true if you provide CCS or BCCS. Please, use includetracking=false or remove CCS and BCCS email addressses
@@ -57,6 +58,8 @@ Specific errors:
 11. *replyto* domain has not MX records
 12. All TO recipients are invalid
 13. All TO recipients are blacklisted
+14. For use URL type in attachments your app must be configured with retaindata=true
+15. Emails limit per month exceeded.
 
 
 

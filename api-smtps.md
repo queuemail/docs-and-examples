@@ -1,14 +1,7 @@
 
+You can define one or more SMTP servers asociated to an app. 
 
-You can define one or more SMTPs asociated to an App. 
-
-If you are using *FREE TIER* you must to create at least a SMTP.
-
-If you are using a *PAID PLAN* you don't need to create a SMTP because you can use SYSTEM SMTPs.
-
-With *FREE TIER* SMTP servers you define are been used in RANDOM order.
-
-With a *PAID PLAN* you can define a RANDOM or PRIORITY based strategy for SMTP use.
+If you don't have an own SMTP server you can [get a free SMTP server here](other-freesmtps.md).
 
 <!-- tabs:start -->
 
@@ -77,7 +70,7 @@ You will get a JSON response like this:
 }
 ```
 
-<!-- tab:List SMTPs by app -->
+<!-- tab:List SMTP servers by app -->
 
 
 
@@ -240,7 +233,11 @@ Specific errors:
 
 <!-- tab:Check a SMTP -->
 
-Sends a email to app test email for checking correct SMTP configuration.
+Sends a email to app test email for checking correct SMTP configuration. 
+
+If you receive 200 status SMTP is working correctly. If this SMTP was disabled, it is enabled at this time.
+
+If you receive 406 status SMTP has errors. If this SMTP was enabled, it is disabled at this time.
 
 **REQUEST:** 
 
@@ -266,6 +263,8 @@ Specific errors:
 
 1. SMTP not found
 2. App not found
+
+... Other errors related with SMTP working.
 
 
 **RESPONSE:**

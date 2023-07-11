@@ -33,8 +33,14 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css">
 
+
+  <script src="https://cdn.queuemail.dev/js/commons.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+
+    
   <!-- Favicon -->
   <link rel="icon" href="logo-q.png" type="image/png">
+
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NGZKG5YF5"></script>
@@ -54,6 +60,9 @@
   }
 
   .docsify-tabs__tab { cursor: pointer; }
+
+  .markdown-section a { color: #7e4bd1 !important;}
+  .sidebar ul li.active > a  { color: #7e4bd1 !important;}
 </style>
 
 </head>
@@ -91,12 +100,15 @@
         '/': 'No Results'
       },
 
+
       // Headline depth, 1 - 6
       depth: 2,
 
       hideOtherSidebarContent: false, // whether or not to hide other sidebar content
     },
+
     
+
       name: '',
       repo: 'queuemail/docs-and-examples',
       
@@ -111,7 +123,9 @@
     theme      : 'classic', // default
     tabComments: true,      // default
     tabHeadings: true       // default
+
   }
+     , logo: 'logo-q.png',
     }
     
 
