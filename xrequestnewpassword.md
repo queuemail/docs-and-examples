@@ -1,6 +1,4 @@
-### Please, enter your email and press Sign up!:
-
-
+### Please, enter your email and press Request new password!:
 
 <!--RPP-->
 
@@ -23,13 +21,11 @@
 
 
 <div style="width:100% important; text-align:right !important;">
-	<input id="wp-submit" type="button" onClick="signUp();" style="padding:10px !important; font-weight:bold !important; margin-top:10px !important" value="Sign up!"  />
+	<input id="wp-submit" type="button" onClick="requestNewPassword();" style="padding:10px !important; font-weight:bold !important; margin-top:10px !important" value="Request new password!"  />
 </div>
 
 
 </form>
-
-If you are already registered and don't remeber your passwor, please [get a new password here](xrequestnewpassword.md).
 <!--FIN RPP-->
 
 

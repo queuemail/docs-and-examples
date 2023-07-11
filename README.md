@@ -1,4 +1,4 @@
-# QUEUEMAIL.DEV
+# QUEUEMAIL.DEV - Reliable email delivery API. Free tier. Send asynchronously.
 
 QUEUEMAIL.DEV allows you to send emails via API using one or more SMTP servers in order to ensure deliverability and avoid SMTP stress.
 
