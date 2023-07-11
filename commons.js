@@ -169,3 +169,15 @@ function onRecaptchaResponseExpiry() {
 	document.getElementById("msgsignUp").innerHTML = 'Captcha expired. Try again, please.';
   }
 
+
+  function reloadCaptcha()
+  {
+      grecaptcha.render('idrecap', { 
+				'sitekey' : '6LcIhKImAAAAADT1PcVk7CNyLn5goUuOKuUOj5Tb', 
+				'callback' : onRecaptchaSuccess,
+                'expired-callback' : onRecaptchaResponseExpiry,
+                'error-callback' : onRecaptchaError
+			});    
+
+        document.getElementById("msgrecap").style.display = 'none';
+  }
