@@ -22,7 +22,8 @@ Using these endpoint you can send (queue up) emails, get emails send information
 |ccs | Carbon copy recipients email addresses (comma separated) | No |  |
 |bccs | Blind carbon copy recipients email addresses (comma separated) | No |  |
 |replyto | Reply email address  | No |  |
-|subject | Email subjec  | Yes |  |
+|mimetype | text/html or text/plain  | No | text/plain |
+|subject | Email subject  | Yes |  |
 |subjectencoding | Email subject encoding (UTF-8, ISO-8859-1, etc.) | No | UTF-8  |
 |body | Email body  | Yes |  |
 |bodyencoding | Email body encoding (UTF-8, ISO-8859-1, etc.)  | No | UTF-8  |
