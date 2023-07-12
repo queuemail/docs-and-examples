@@ -21,7 +21,7 @@ If you don't have an own SMTP server you can [get a free SMTP server here](other
 |username | SMTP user name  | Yes  |
 |password | SMTP user password | Yes |  |
 |auth | If SMTP auth is used (true) or not (false) | false |  |
-|startstls | If STARTTLS is used (true) or not (false)  | false |  |
+|starttls | If STARTTLS is used (true) or not (false)  | false |  |
 |ssltls | If SSL/TLS is used (true) or not (false)  | false |  |
 |defaulfromemail | Default from email if domain not allowed | No |  |
 |defaultfromname | Default from name if domain not allowed  | No |  |
@@ -58,7 +58,7 @@ You will get a JSON response like this:
     "username": "user@yourserver.net",
     "password": "smtppassword1234",
     "auth": true,
-    "startstls": true,
+    "starttls": true,
     "sslTls": false,
     "debug": false,
     "defaultfromemail": "info@yourserver.xyz",
@@ -110,7 +110,7 @@ You will get a JSON response like this:
         "username": "user1",
         "password": "Yourpass1234",
         "auth": true,
-        "startstls": true,
+        "starttls": true,
         "sslTls": false,
         "debug": false,
         "defaultfromemail": "info@yourserver.xyz",
@@ -129,7 +129,7 @@ You will get a JSON response like this:
         "username": "user2",
         "password": "YourPASS1234",
         "auth": true,
-        "startstls": true,
+        "starttls": true,
         "sslTls": false,
         "debug": false,
         "defaultfromemail": "info@anothersmtp.xyz",
@@ -185,7 +185,7 @@ You will get a JSON response like this:
     "username": "user2",
     "password": "YourPASS1234",
     "auth": true,
-    "startstls": true,
+    "starttls": true,
     "sslTls": false,
     "debug": false,
     "defaultfromemail": "info@anothersmtp.xyz",
