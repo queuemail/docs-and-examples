@@ -10,7 +10,7 @@ Using these endpoint you can get email logs.
 
 **REQUEST:** 
 
-*GET* /private/logs/findByMail
+*GET* /private/logs/findByEMail
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|

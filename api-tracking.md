@@ -10,7 +10,7 @@ Using this endpoint you can manage email tracking: opened emails and email link 
 
 **REQUEST:** 
 
-*GET* /private/tracking/findByMail
+*GET* /private/tracking/findByEMail
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
