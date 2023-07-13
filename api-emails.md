@@ -77,7 +77,7 @@ You will get a JSON response like this:
     ],
     "blacklisted": [],
     "autoblacklisted": [],
-    "novalidrecipients": []
+    "notvalidrecipients": []
 }
 ```
 
@@ -87,7 +87,7 @@ You will get a JSON response like this:
 - **attachments** array with all url attachments.
 - **blacklisted** array with all recipient emails addresses blacklisted.
 - **autoblacklisted** array with all recipient emails addresses auto-blacklisted.
-- **novalidrecipients** array with all recipient not valid emails addresses.
+- **notvalidrecipients** array with all recipient not valid emails addresses.
 
 
 <!-- tab:Get email sending info -->
@@ -142,7 +142,7 @@ You will get a JSON response like this:
 - **attachments** array with all url attachments.
 - **blacklisted** array with all recipient emails addresses blacklisted.
 - **autoblacklisted** array with all recipient emails addresses auto-blacklisted.
-- **novalidrecipients** array with all recipient not valid emails addresses.
+- **notvalidrecipients** array with all recipient not valid emails addresses.
 - **log** array with all log email information.
 - **opened** array with all recipient emails time addresses & open time.
 
