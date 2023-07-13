@@ -14,7 +14,7 @@ Using these endpoint you can get email logs.
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Mail id | Yes |  |
+|idmail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -54,7 +54,7 @@ You will get a JSON response like this:
 ]
 ```
 
-- Response is composed by an array with all operations associated with the mail sent (**idsending**)
+- Response is composed by an array with all operations associated with the email sent (**idsending**)
 - **idsmtp** is the id of the SMTP used for sending.
 - **resultcode** can be "OK" for sucess sending. "BLACKLISTED" if recipient has been included in blacklsit. "AUTOBLACKLISTED" if recipient has been included in auto-blacklist. Also can be a specific error code (ATTACHMENT_PROBLEM, SMTP_CONNECT_FAILS, SMTP_CONNECT_TIMEOUT, etc.)
 - **created** is the operation date/time.

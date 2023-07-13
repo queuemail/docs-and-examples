@@ -14,7 +14,7 @@ Using this endpoint you can manage email tracking: opened emails and email link 
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Mail id | Yes |  |
+|idmail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -54,13 +54,13 @@ You will get a JSON response like this:
 ]
 ```
 
-- Response is composed by an array with all operations associated with the mail sent (**idsending**)
+- Response is composed by an array with all operations associated with the email sent (**idsending**)
 - **idmailing** is the id of the mailing (if exists) asociated with this email sending
-- **email** is the recipient asocciated with this tracking info (who opened mail or clicked link)
+- **email** is the recipient asocciated with this tracking info (who opened email or clicked email link)
 - **type** is OPEN for tracking opened emails and CLICK for tracking clicked links.
 - **created** is the operation date/time.
 - **idapp** is the id of the App used but only has value in some operations.
-- **ip** is the origin ip from the recipient opened mail or clicked link.
+- **ip** is the origin ip from the recipient opened email or clicked email link.
 - **url** is the target URL in an clicked link tracking info.
 
 

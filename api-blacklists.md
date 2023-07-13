@@ -47,7 +47,7 @@ You will get a JSON response like this:
 }
 ```
 
-- **idsending** mail sending id if blacklist has been created due to a mail sending.
+- **idsending** email sending id if blacklist has been created due to a email sending.
 - **ip** ip origin of blacklist add.
 - **created** when the email has been added to blacklist.
 

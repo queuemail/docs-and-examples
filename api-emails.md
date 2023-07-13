@@ -100,7 +100,7 @@ You will get a JSON response like this:
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Mail id | Yes |  |
+|idmail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -160,7 +160,7 @@ You will get a JSON response like this:
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Mail id | Yes |  |
+|idmail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -202,7 +202,7 @@ You will get a JSON response like this:
 }
 ```
 
-**status** field = C means the mail has been canceled.
+**status** field = C means the email send has been canceled.
 
 
 

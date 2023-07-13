@@ -24,11 +24,11 @@ Each app should correspond to a project or project part which has different beha
 |timebetweenemails | Seconds between emails  | No | 60 |
 |useblacklist | If this app must use black list  | No | No |
 |useautoblacklist | If this app must use auto black list  | No | No |
-|webhook_sending_finished | URL called when mail sent is ok  | No |
-|webhook_sending_error | URL called when mail sent fails  | No |
-|webhook_tracking_opened | URL called when mail is opened  | No |
+|webhook_sending_finished | URL called when email send finish sucessfully  | No |
+|webhook_sending_error | URL called when email send fails  | No |
+|webhook_tracking_opened | URL called when email is opened  | No |
 |webhook_tracking_clicked | URL called when when link in email is clicked | No |
-|webhook_blacklisted_added | URL called when mail address is added to blacklist | No |
+|webhook_blacklisted_added | URL called when email address is added to blacklist | No |
 
 **STATUS CODES:**
 
