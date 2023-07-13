@@ -14,7 +14,7 @@ Using this endpoint you can manage email tracking: opened emails and email link 
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Email id | Yes |  |
+|idemail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -34,7 +34,7 @@ You will get a JSON response like this:
     {
         "_id": "6475cd84fc67f96b4d0cd808",
         "idsending": "6475ccb2fc67f96b4d0cd803",
-        "idmailing": null,
+        "idemailing": null,
         "email": "xxxx@gmail.com",
         "type": "OPEN",
         "url": null,
@@ -44,7 +44,7 @@ You will get a JSON response like this:
     {
         "_id": "6475cd84fc67f96b4d0cd809",
         "idsending": "6475ccb2fc67f96b4d0cd803",
-        "idmailing": null,
+        "idemailing": null,
         "email": "xxxx@gmail.com",
         "type": "CLICK",
         "url": "https://google.com",
@@ -55,7 +55,7 @@ You will get a JSON response like this:
 ```
 
 - Response is composed by an array with all operations associated with the email sent (**idsending**)
-- **idmailing** is the id of the mailing (if exists) asociated with this email sending
+- **idemailing** is the id of the mailing (if exists) asociated with this email sending
 - **email** is the recipient asocciated with this tracking info (who opened email or clicked email link)
 - **type** is OPEN for tracking opened emails and CLICK for tracking clicked links.
 - **created** is the operation date/time.

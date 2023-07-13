@@ -14,7 +14,7 @@ Using these endpoint you can get email logs.
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Email id | Yes |  |
+|idemail | Email id | Yes |  |
 
 **STATUS CODES:**
 

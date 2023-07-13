@@ -100,7 +100,7 @@ You will get a JSON response like this:
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Email id | Yes |  |
+|idemail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -160,7 +160,7 @@ You will get a JSON response like this:
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | Email id | Yes |  |
+|idemail | Email id | Yes |  |
 
 **STATUS CODES:**
 
@@ -217,7 +217,7 @@ Remove a finished email. Also remove all logs and tracking info.
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
-|idmail | SMTP id | Yes |  |
+|idemail | SMTP id | Yes |  |
 
 **STATUS CODES:**
 
