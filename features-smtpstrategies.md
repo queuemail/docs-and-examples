@@ -6,7 +6,7 @@ When [creating/editing your app](apps.md), you can choose beetween RANDOM and PR
 
 If you don't specify *strategy* parameter, RANDOM strategy is assumed by default.
 
-If you specify *strategy=PRIORITY*, in each email sending SMTP server with higher priority will be use at first. In case of error, next SMTP with higher priority will be used, and so on.
+If you specify *strategy=PRIORITY*, when sending emails, SMTP server with higher priority will be use at first. In case of error, next SMTP with higher priority will be used, and so on.
 
 You can define priority for each SMTP when [creating/editing your SMTP servers](api-smtps.md).
 

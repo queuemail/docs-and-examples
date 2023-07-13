@@ -1,4 +1,4 @@
-Blacklists feature let recipients to include their email addresses in a blacklist in order to block future email sendings from app asociated to that blacklist.
+Blacklists feature let recipients to include their email addresses in a blacklist in order to block send future emails from app asociated to that blacklist.
 
 Also, the system can include a email address in a auto-blacklist when it detects that email address has permanent errors.
 

@@ -90,7 +90,7 @@ You will get a JSON response like this:
 - **notvalidrecipients** array with all recipient not valid emails addresses.
 
 
-<!-- tab:Get email sending info -->
+<!-- tab:Get email info -->
 
 
 
@@ -136,7 +136,12 @@ You will get a JSON response like this:
 }
 ```
 
-- **status** field = 'Q' means email has been queued up correctly.
+- **status** = 
+    - 'Q' means email has been queued up correctly. 
+    - 'R' means email is been sent at now. 
+    - 'C' means email has been cancelled. 
+    - 'E' means email send has failled. 
+    - 'F' means email has been sent sucessfully.
 - **inittime** is the estimated time for sending email.
 - **logsdeleledby** it the time when email logs will be deleted.
 - **attachments** array with all url attachments.
