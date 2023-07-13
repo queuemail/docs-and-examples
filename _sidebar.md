@@ -13,7 +13,7 @@
 * [Login](api-login.md)
 * [Apps](api-apps.md)
 * [SMTP servers](api-smtps.md)
-* [Mails](api-mails.md)
+* [Mails](api-emails.md)
 * [Blacklists](api-blacklists.md)
 * [Logs](api-logs.md)
 * [Tracking](api-tracking.md)

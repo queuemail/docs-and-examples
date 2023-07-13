@@ -10,7 +10,7 @@ Using these endpoint you can send (queue up) emails, get emails send information
 
 **REQUEST:** 
 
-*POST* /private/mails/send
+*POST* /private/emails/send
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
@@ -96,7 +96,7 @@ You will get a JSON response like this:
 
 **REQUEST:** 
 
-*GET* /private/mails/info
+*GET* /private/emails/info
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
@@ -156,7 +156,7 @@ You will get a JSON response like this:
 
 **REQUEST:** 
 
-*POST* /private/mails/cancel
+*POST* /private/emails/cancel
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
@@ -206,14 +206,14 @@ You will get a JSON response like this:
 
 
 
-<!-- tab:Remove a email -->
+<!-- tab:Remove an email -->
 
 Remove a finished email. Also remove all logs and tracking info.
 
 **REQUEST:** 
 
 
-*POST* /private/mails/remove
+*POST* /private/emails/remove
 
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|

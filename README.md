@@ -8,7 +8,7 @@ Some sample features:
 
 - Also, with [webhooks](features-webhooks.md), you can run processes when an event (like email sucessfully sent) occurs for a complete integration.
 
-- With [sending email endpoint](api-mails.md) you can discard sending errors before you start a SMTP session.
+- With [sending email endpoint](api-emails.md) you can discard sending errors before you start a SMTP session.
 
 - Track opened emails and clicked email links with [tracking endpoint](api-tracking.md).
 

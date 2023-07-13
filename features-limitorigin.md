@@ -1,4 +1,4 @@
-When [creating/editing your app](api-apps.md) optionally you can set a origin server or IP in order to limit servers/IPs from which [call to send emails](api-mails.md) can be made.
+When [creating/editing your app](api-apps.md) optionally you can set a origin server or IP in order to limit servers/IPs from which [call to send emails](api-emails.md) can be made.
 
 If you don't set this parameter your app can be used from any IP without checking request origin.
 
