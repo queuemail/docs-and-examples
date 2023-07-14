@@ -26,6 +26,7 @@
 
 ### &nbsp; Legal:
 * [Private policy](legal-privatepolicy.md)
+* [Contact us](legal-contact.md)
 
 
 
