@@ -17,3 +17,8 @@ Some sample features:
 Free tier does not support Queuemail professional SMTP servers. So you must to configure [free SMTP servers](other-freesmtps.md) or your custom SMTP server.
 
 
+
+### CLIENTS AND EXAMPLES:
+
+* [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
+
