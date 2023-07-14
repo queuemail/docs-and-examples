@@ -5,7 +5,7 @@
 - You can only use your SMTP servers or 3rd party SMTP servers (Google, Outlook, etc.). No access to Queuemail.dev professional SMTP severs.
 - Logs (if activated) are removed by 30 days.
 - Data are hosted in our data infraestructure. No access to configure your own infraestructure (database).
-- Normal queue processing (no priority for send email faster).
+- Normal queue processing (no priority for send emails faster).
 
 
 #### For **professional use** we can offer a custom solution removing these limits:
