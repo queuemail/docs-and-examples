@@ -32,6 +32,7 @@ Using these endpoint you can send (queue up) emails, get emails send information
 |attachmenttype | Email attachments type (FILE / URL)  | No | FILE |
 |includetracking | Include tracking in email?  | No | false |
 |includeunregisterlink | Include unregister link (blacklist) in email?  | No | false |
+|sendate | Date/time to send the email in format yyyy-MM-dd'T'HH:mm:ssZ and must be a future date/time. Example: 2033-09-29T18:46:19-0700 where -0700 means GMT-7 timezone  | No |  |
 
 **STATUS CODES:**
 

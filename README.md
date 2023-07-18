@@ -24,3 +24,6 @@ Free tier does not support Queuemail professional SMTP servers. So you must to c
 
 * [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
 
+
+### CHANGELOG:
+* **2023-07-18**: Added **sendate** parameter to endpoint for [sending emails](api-emails.md) in order to schedule email to send.

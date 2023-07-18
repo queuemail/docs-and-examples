@@ -32,6 +32,8 @@ Usando estas llamadas puedes enviar emails (meterlos en cola), obtener informaci
 |attachmenttype | Tipo de adjuntos (FILE / URL)  | No | FILE |
 |includetracking | ¿Incluir tracking?  | No | false |
 |includeunregisterlink | ¿Incluir enlace de baja (blacklist)?  | No | false |
+|sendate | Fecha/hora en el que se enviará el email en formato yyyy-MM-dd'T'HH:mm:ssZ y debe ser una fecha/hora futura. Ejemplo: 2033-09-29T18:46:19-0700 donde -0700 significa la zona horaria GMT-7  | No |  |
+
 
 **CÓDIGOS DE ESTADO:**
 
