@@ -26,4 +26,4 @@ Free tier does not support Queuemail professional SMTP servers. So you must to c
 
 
 ### CHANGELOG:
-* **2023-07-18**: Added **sendate** parameter to endpoint for [sending emails](api-emails.md) in order to schedule email to send.
+* **2023-07-18**: Added **sendate** parameter to [sending emails endpoint](api-emails.md) in order to schedule emails to send.
