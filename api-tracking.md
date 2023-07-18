@@ -55,7 +55,6 @@ You will get a JSON response like this:
 ```
 
 - Response is composed by an array with all operations associated with the email sent (**idsending**)
-- **idemailing** is the id of the mailing (if exists) asociated with this email sending
 - **email** is the recipient asocciated with this tracking info (who opened email or clicked email link)
 - **type** is OPEN for tracking opened emails and CLICK for tracking clicked links.
 - **created** is the operation date/time.

@@ -1,14 +1,15 @@
-Apps, by default, retain subject and body data **until email is sucessfully sent**. Then, these data are permanently removed.
 
-If you want to retain these data permanently, you must use *retaindata=true* when [creating/editing your app](api-apps.md).
+Las apps, por defecto, solo conservan los datos de asunto y cuerpo del email **hasta que el email es enviado correctamente**. Después esos datos son elimnados permanentemente.
 
-If you want to use *attachmenttype=URL* when you [send an email](api-emails.md), you must use *retaindata=true* in your app.
+Si quieres conservar esos datos de forma permanente, debes usar *retaindata=true* cuando [crees/edites tu app](api-apps.md).
 
-Whether you use *retaindata=true* or not you can call [/private/emails/remove](api-emails.md) endpoint to remove all data and logs of finished emails.
+Si quieres usar *attachmenttype=URL* cuando [envíes un email](api-emails.md), debes usar *retaindata=true* en tu app.
 
-Due to traceability reasons, we do not remove any email address.
+Uses *retaindata=true* o no, siempre puedes usar la llamada [/private/emails/remove](api-emails.md) para eliminar todos los datos y logs de envíos de emails finalizados.
 
-Please, read our [private policy](legal-privatepolicy.md) for more info about data privacy. 
+Debido a razones de trazabilidad, nunca eliminamos las direcciones de correo.
+
+Por favor, lee nuestra [política de privacidad](legal-privatepolicy.md) para más información acerca de la privacidad de datos. 
 
 
 

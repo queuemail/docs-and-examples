@@ -1,33 +1,32 @@
 
-
-Using this endpoint you can manage email tracking: opened emails and email link clicks.
+Usando esta llamada puedes gestionar el tracking de envíos: Emails abiertos y clics hechos en los enlaces del email.
 
 <!-- tabs:start -->
 
 
-<!-- tab:Get tracking info by email -->
+<!-- tab:Obtener información de tracking por email -->
 
 
 **REQUEST:** 
 
 *GET* /private/tracking/findByEMail
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
+|idemail | Email id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 [
@@ -54,14 +53,13 @@ You will get a JSON response like this:
 ]
 ```
 
-- Response is composed by an array with all operations associated with the email sent (**idsending**)
-- **idemailing** is the id of the mailing (if exists) asociated with this email sending
-- **email** is the recipient asocciated with this tracking info (who opened email or clicked email link)
-- **type** is OPEN for tracking opened emails and CLICK for tracking clicked links.
-- **created** is the operation date/time.
-- **idapp** is the id of the App used but only has value in some operations.
-- **ip** is the origin ip from the recipient opened email or clicked email link.
-- **url** is the target URL in an clicked link tracking info.
+- La respuesta está compuesta de una lista con todas las operaciones de trackong asociadas al email enviado (**idsending**)
+- **email** es el destinatario asociado con esta información de tracking (quién abrió el email o quién hizo clic en un enlace)
+- **type** OPEN para tracking de emails abiertos, CLICK para tracking de enlaces en los que se ha hecho clic.
+- **created** es la fecha/hora de la aplicación.
+- **idapp** id de la app usada. Solo aparece en algunas operaciones donde tiene sentido.
+- **ip** IP origen desde la cual el destinatario abrió el email o hizo click en el enlace.
+- **url** URL del enlace donde ha hecho clic. 
 
 
 <!-- tabs:end -->

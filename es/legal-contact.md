@@ -1,1 +1,1 @@
-If you have further questions, please do not hesitate to contact us at info@queuemail.dev.
+Si tiene más preguntas, no dude en ponerse en contacto con nosotros en info@queuemail.dev.

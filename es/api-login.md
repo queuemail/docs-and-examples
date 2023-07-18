@@ -1,28 +1,29 @@
 
+Usa tu nombre de usuario y contraseña para obtener un bearer token que usarás en todas las operaciones de la API.
 
 Use your username and password to get a bearer token you will use in all API operations.
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *POST* /auth/login
 
 |Parameter|Description|Required|
 |---------|-----------|--------|
-|username | Your user name | Yes |
-|password | Your password  | Yes |
+|username | Nombre de usuario | Sí |
+|password | Contraseña  | Sí |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Login ok |
-|400 | Missing required parameter or wrong parameter type |
-|403 | User/password not valid |
-|500 | Internal error|
+|200 | Login correcto |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|403 | Usuario/contraseña no válido |
+|500 | Error interno|
 
 **OK RESPONSE:**
 
-If login ok, you will get a JSON response like this:
+Si el login es correcto, recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -34,7 +35,7 @@ If login ok, you will get a JSON response like this:
 }
 ```
 
-Now, you can use the value of **token** field in header *Authorization* in all API operations as a bearer token:
+Ahora puedes usar el valor del campo **token** en la cabecera *Authorization* como bearer token en todas las operaciones de la API:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2M2JiZTU4NmRkMDcwYjc4ZmI0OTVlZDIiLCJzdWIiOiJ1c2VyMSIsImF1ZCI6InVzZXIiLCJpc3MiOiJDSS0xNTFhY2U2OS1kZTkyLTQwYjQtYmY5NC04OGRmZWIzNTc1ZjQiLCJpYXQiOjE2ODQ3NDg0MTUsImV4cCI6MTY4NDgzNDgxNX0.CcNyo8Ug45dNLNZ0Q41wpPObrFI-hagaJdat3ryxqdo

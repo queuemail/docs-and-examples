@@ -1,58 +1,59 @@
-You need to create at least an app to use QUEUEMAIL. 
+Necesitas al menos crar una app para usar QUEUEMAIL. 
 
-Each app should correspond to a project or project part which has different behaviour.
+Cada app puede corresponder a un proyecto o parte del proyecto con diferente comportamiento.
+
+
 
 <!-- tabs:start -->
 
-<!-- tab:Create/edit an app -->
+<!-- tab:Crear/editar una app -->
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *POST* /private/apps/save
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes for editing, No for creating |  |
-|name | App name  | Yes for creating, No for editing |  |
-|retaindata | If this app must preserve subject, body and url attachments | No | No |
+|idapp | App id | Si para edición, No para creación |  |
+|name | App name  | Sí para creación, No para edición |  |
+|retaindata | Si esta app debe preservar los datos de subject, body y url de adjuntos | No | No |
 |strategy | RANDOM / PRIORITY  | No  | RANDOM |
-|originserver | If set, you can make calls just from this servers/IPs (comma separated for multiple values) | No  |
-|defaultfromemail | Default from email when sending emails | No | User's email |
-|defaultfromname | Default from name when sending emails | No | User's email |
-|testemail | Recipient email for testing emails  | No | User's email |
-|timebetweenemails | Seconds between emails  | No | 60 |
-|useblacklist | If this app must use black list  | No | No |
-|useautoblacklist | If this app must use auto black list  | No | No |
-|webhook_sending_finished | URL called when email send finish sucessfully  | No |
-|webhook_sending_error | URL called when email send fails  | No |
-|webhook_tracking_opened | URL called when email is opened  | No |
-|webhook_tracking_clicked | URL called when when link in email is clicked | No |
-|webhook_blacklisted_added | URL called when email address is added to blacklist | No |
+|originserver | Si se establece, se pueden hacer llamadas solo desde el host/IP especificado (para muchos valores se separan por coma) | No  |
+|defaultfromemail | Dirección origen del correo por defecto | No | Email del usuario |
+|defaultfromname | Nombre origen del correo | No | Email del usuario |
+|testemail | Email de destinatario para emails de prueba  | No | Email del usuario |
+|timebetweenemails | Segundos entre emails  | No | 60 |
+|useblacklist | Si la app usa black list  | No | No |
+|useautoblacklist | Si la app usa auto black list  | No | No |
+|webhook_sending_finished | URL llamada cuando el envío de email termina correctamente  | No |
+|webhook_sending_error | URL llamada cuando el envío de email falla | No |
+|webhook_tracking_opened | URL llamada cuando el email es abierto  | No |
+|webhook_tracking_clicked | URL llamada cuando se hace click en un enlace del email recibido | No |
+|webhook_blacklisted_added | URL llamada cuando un remitente se añade a la blacklist | No |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. Already exists an APP with the same name
-2. App not found
-3. Must provide a name
-4. You can choose between setting originserver (backend apps) or setting origindomain (frontend apps)
-
+1. Ya existe una app con el mismo nombre
+2. App no encontrada
+3. Debes especificar un nombre
 
 
-**RESPONSE:**
 
-You will get a JSON response like this:
+**RESPUESTA:**
+
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -64,40 +65,40 @@ You will get a JSON response like this:
 }
 ```
 
-Now, you can use the value of **token** field in header *Authorization* in all API operations as a Bearer token:
+Ahora puedes usar el valor de **token** en la cabecera *Authorization* de todas las operaciones de la API como un Bearer token:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2M2JiZTU4NmRkMDcwYjc4ZmI0OTVlZDIiLCJzdWIiOiJ1c2VyMSIsImF1ZCI6InVzZXIiLCJpc3MiOiJDSS0xNTFhY2U2OS1kZTkyLTQwYjQtYmY5NC04OGRmZWIzNTc1ZjQiLCJpYXQiOjE2ODQ3NDg0MTUsImV4cCI6MTY4NDgzNDgxNX0.CcNyo8Ug45dNLNZ0Q41wpPObrFI-hagaJdat3ryxqdo
 ```
-<!-- tab:List all apps -->
+<!-- tab:Listar todas las apps -->
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/apps/findAll
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|page | Initial page | Yes |  |
-|size | Page máximun size | Yes |  |
+|page | Página inicial | Sí |  |
+|size | Tamaño máximo de página | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -154,38 +155,38 @@ You will get a JSON response like this:
 }
 ```
 
-Field **content** is a list containing all the existing apps for the logged account.
+El campo  **content** es una lista con todas las apps existentes para la cuenta conectada.
 
 
-<!-- tab:App info -->
+<!-- tab:Información de app -->
 
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/apps/findById
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
+|idapp | App id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -215,36 +216,36 @@ You will get a JSON response like this:
 
 
 
-<!-- tab:Delete an app -->
+<!-- tab:Borrar una app -->
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 
 *POST* /private/apps/remove
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
+|idapp | App id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. App not found
+1. App no encontrada
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
-*empty*
+*vacía*
 
 <!-- tabs:end -->
 

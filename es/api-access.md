@@ -1,9 +1,9 @@
 
 
 
-For accessing QUEUEMAIL API you need to [register here](xsignup.md). Then, with your username and password, you can [login](api-login.md) and get a token you will use in all API operations.
+Para acceder a la API de QUEUEMAIL necesitas [registrate aquí](xsignup.md). Luego, con tu usuario y contraseña, puedes hacer [login](api-login.md) y obtener el token que usarás en todas las peticiones de la API.
 
-Token expiration = 24 hours.
+Caducidad del token = 24 hours.
 
 ### API endpoint base URL:
 

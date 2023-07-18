@@ -1,21 +1,21 @@
 
-#### You must consider our **API free-tier** has the following limitations:
+#### Debes considerar que la **capa gratuita de la API** tiene las siguientes limitaciones:
 
-- You can send up to 10,000 emails per month. This is quite a bit for most of small to medium projects.
-- You can only use your SMTP servers or 3rd party SMTP servers (Google, Outlook, etc.). No access to Queuemail.dev professional SMTP severs.
-- Logs (if activated) are removed by 30 days.
-- Data are hosted in our data infraestructure. No access to configure your own infraestructure (database).
-- Normal queue processing (no priority for send emails faster).
+- Puedes enviar hasta 10.000 emails por mes. Esto es suficiente para la mayoría de proyectos pequeños y medianos.
+- PUedes usar solamente tus propios servidores SMTP o bien servidores SMTP de terceros (Google, Outlook, etc.). No tienes acceso a los servidores SMTP profesionales de Queuemail.dev.
+- Los logs son eliminados a los 30 días.
+- Todos los datos son almacenados en nuestra infraestructura. No tienes acceso a configurar tu propia infraestructura (base de datos).
+- Procesamiento de cola normal (no tienes prioridad para enviar los emails más rápido).
 
 
-#### For **professional use** we can offer a custom solution removing these limits:
+#### Para **uso profesional** ofrecemos una solución personalizada eliminando esos límites:
 
-- More emails per month.
-- Access to Queuemail.dev professional SMTP servers (including option for sending with your own domain).
-- No limit for logs retention.
-- Host all your data in your own database (only you can access these data).
-- Acelerated queue processing (emails are sent faster).
+- Puedes enviar más emails por mes.
+- Acceso a los servidores SMTP profesionales de Queuemail.dev (incluyendo la opción de enviar con tu propio dominio).
+- No hay límite de retención de tiempo para los logs.
+- Puedes almacenar todos los datos en tu propia base de datos (solo tú podrás acceder a ellos).
+- Procesamiento de la cola acelerado (los emails son enviados más rápido).
 
-If your are intested in a professional custom solution, please, contact <a href="info@queuemail.dev">info@queuemail.dev</a>.
+Si estás interesado en un uso profesional personalizado, por favor, contacta con <a href="info@queuemail.dev">info@queuemail.dev</a>.
 
 

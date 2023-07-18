@@ -1,35 +1,36 @@
 
+Usando esta llamada puedes obtener toda la información de logs y actividad del email.
 
-Using these endpoint you can get email logs.
+
 
 <!-- tabs:start -->
 
 
-<!-- tab:Get logs by email -->
+<!-- tab:Obtener logs por email -->
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/logs/findByEMail
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
+|idemail | Email id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizadodo |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 [
@@ -54,12 +55,12 @@ You will get a JSON response like this:
 ]
 ```
 
-- Response is composed by an array with all operations associated with the email sent (**idsending**)
-- **idsmtp** is the id of the SMTP used for sending.
-- **resultcode** can be "OK" for sucess sending. "BLACKLISTED" if recipient has been included in blacklsit. "AUTOBLACKLISTED" if recipient has been included in auto-blacklist. Also can be a specific error code (ATTACHMENT_PROBLEM, SMTP_CONNECT_FAILS, SMTP_CONNECT_TIMEOUT, etc.)
-- **created** is the operation date/time.
-- **idapp** is the id of the App used but only has value in some operations.
-- **to** is the recipient related with the operation.
+- La respuesta está compuesta por una lista con todas las operaciones asociadas al email (**idsending**)
+- **idsmtp** id del servidor SMTP usado para el envío.
+- **resultcode** puede ser "OK" para envío correcto, "BLACKLISTED" si el destinatario está incluido en la blacklsit. "AUTOBLACKLISTED" está incluido en la auto-blacklist. También puede ser un error específico (ATTACHMENT_PROBLEM, SMTP_CONNECT_FAILS, SMTP_CONNECT_TIMEOUT, etc.)
+- **created** fecha/hora de la operación.
+- **idapp** id de la app (solo tiene valor en ciertas operaciones)
+- **to** destinatario relacionado con la operación.
 
 
 <!-- tabs:end -->

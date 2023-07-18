@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
  <script src="/es/commons.js"></script>
  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
@@ -12,24 +12,24 @@
 
   <!--Meta tags-->
   <title>QUEUEMAIL.DEV - Documentación y ejemplos</title>
-  <meta name="description" content="API de envío de correo confiable. Capa gratuita. Envía de forma asíncrona.">
+  <meta name="description" content="API confiable para envío de emails. Capa gratuita. Envíos asíncronos.">
 
   <!-- Google / Search Engine Tags -->
   <meta itemprop="name" content="QUEUEMAIL.DEV">
-  <meta itemprop="description" content="API de envío de correo confiable. Capa gratuita. Envía de forma asíncrona.">
+  <meta itemprop="description" content="API confiable para envío de emails. Capa gratuita. Envíos asíncronos.">
   <meta itemprop="image" content="https://raw.githubusercontent.com/queuemail/docs-and-examples/master/logo-q.png">
   
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://docs.queuemail.dev">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="QUEUEMAIL - API de envío de correo confiable">
-  <meta property="og:description" content="API de envío de correo confiable. Capa gratuita. Envía de forma asíncrona.">
+  <meta property="og:title" content="QUEUEMAIL - API confiable para envío de emails">
+  <meta property="og:description" content="API confiable para envío de emails. Capa gratuita. Envíos asíncronos.">
   <meta property="og:image" content="https://raw.githubusercontent.com/queuemail/docs-and-examples/master/logo-q.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="QUEUEMAIL - API de envío de correo confiable">
-  <meta name="twitter:description" content="API de envío de correo confiable. Capa gratuita. Envía de forma asíncrona.">
+  <meta name="twitter:title" content="QUEUEMAIL - API confiable para envío de emails">
+  <meta name="twitter:description" content="API confiable para envío de emails. Capa gratuita. Envíos asíncronos.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/queuemail/docs-and-examples/master/logo-q.png">
 
   <!-- Stylesheets -->
@@ -70,12 +70,12 @@
 </head>
 <body>
 
-  <noscript>Esta página requiere Javascript para funcionar. Por favor, actívalo o también puedes visitar nuestro repositorio GitHub <a href="https://github.com/queuemail/docs-and-examples">aquí</a>.</noscript>
+  <noscript>Esta página necesita Javascript para funcionar. Por favor, actívelo o bien visite nuestro repositorio GitHub <a href="https://github.com/queuemail/docs-and-examples">aquí</a>.</noscript>
 
 
   <nav>
-    <a href="/">Inicio</a>
-    <a style="font-weight:bold;color:#FF0000;" href="/#/es/xsignup">Regístrate</a>
+    <a href="/">Inglés</a>
+    <a href="/es/index.html#/">Español</a>
   </nav>
 
   <div id="app">Cargando...</div>
@@ -84,30 +84,19 @@
     window.$docsify = {
     
       executeScript: true,
+
+
       search: {
       maxAge: 86400000, // Expiration time, the default one day
       paths: 'auto', // or 'auto'
-      placeholder: 'Type to search',
 
       // Localization
-      placeholder: {
-        '/es/': 'Escriba para buscar',
-        '/': 'Type to search'
-      },
-
-      noData: 'No Results!',
-
-      // Localization
-      noData: {
-        '/es/': 'Sin resultados',
-        '/': 'No Results'
-      },
-
-      alias : { "/es/(.*)" : "https://github.com/queuemail/docs-and-examples/es/$1" },
+      placeholder: 'Escribe para buscar',
+      noData:  'Sin resultados',
 
 
       // Headline depth, 1 - 6
-      depth: 2,
+      depth: 6,
 
       hideOtherSidebarContent: false, // whether or not to hide other sidebar content
     },
@@ -119,8 +108,10 @@
       
       loadSidebar: true,
       autoHeader: true,
+
       alias: {
-      '/.*/_sidebar.md': '/_sidebar.md'},
+      '/.*/_sidebar.md': '/_sidebar.md',
+    },
 
       tabs: {
     persist    : true,      // default

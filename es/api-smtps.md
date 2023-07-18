@@ -1,52 +1,52 @@
 
-You can define one or more SMTP servers asociated to an app. 
+Puedes definir uno o más servidores SMTP asociados a una app.
 
-If you don't have an own SMTP server you can [get a free SMTP server here](other-freesmtps.md).
+Si no tienes ningún servidor SMTP propio puedes [conseguir un servidor SMTP gratis aquí](other-freesmtps.md).
 
 <!-- tabs:start -->
 
-<!-- tab:Create/edit an SMTP -->
+<!-- tab:Crear/editar un SMTP -->
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *POST* /private/smtps/save
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idsmtp | SMTP id | Yes for editing, No for creating |  |
-|idapp | App id | Yes |  |
-|priority | Priority (0=highest priority)  | No | 10 |
-|port | SMTP port  | Yes  |  |
-|username | SMTP user name  | Yes  |
-|password | SMTP user password | Yes |  |
-|auth | If SMTP auth is used (true) or not (false) | false |  |
-|starttls | If STARTTLS is used (true) or not (false)  | false |  |
-|ssltls | If SSL/TLS is used (true) or not (false)  | false |  |
-|defaulfromemail | Default from email if domain not allowed | No |  |
-|defaultfromname | Default from name if domain not allowed  | No |  |
+|idsmtp | SMTP id | Si para edición, No para creación |  |
+|idapp | App id | Sí |  |
+|priority | Prioridad (0=más alta)  | No | 10 |
+|port | Puerto SMTP  | Sí  |  |
+|username | Nombre de usuario SMTP  | Sí  |
+|password | Contraseña SMTP | Sí |  |
+|auth | Si el SMTP usa autentificación (true) o no (false) | false |  |
+|starttls | Si el SMTP usa STARTTLS (true) o no (false)  | false |  |
+|ssltls | Si el SMTP usa SSL/TLS (true) o no (false)  | false |  |
+|defaulfromemail | Dirección de origen por defecto si no se permite enviar con el dominio especificado en la dirección de origen | No |  |
+|defaultfromname | Nombre de origen por defecto si no se permite enviar con el dominio especificado en la dirección de origen  | No |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. SMTP not found
-2. App not found
+1. SMTP no encontrado
+2. App no encontrada
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -70,34 +70,34 @@ You will get a JSON response like this:
 }
 ```
 
-<!-- tab:List SMTP servers by app -->
+<!-- tab:Listar todos los SMTP de una app -->
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/smtps/findByApp
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
+|idapp | App id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 [
@@ -145,35 +145,35 @@ You will get a JSON response like this:
 
 
 
-<!-- tab:Find a SMTP by id -->
+<!-- tab:Encontrar un SMTP por id -->
 
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/smtps/findById
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idsmtp | SMTP id | Yes |  |
+|idsmtp | SMTP id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -201,75 +201,75 @@ You will get a JSON response like this:
 
 <!-- tab:Delete a SMTP -->
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 
 *POST* /private/smtps/remove
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | SMTP id | Yes |  |
+|idapp | SMTP id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. SMTP not found
+1. SMTP no encontrado
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
 *empty*
 
 
-<!-- tab:Check a SMTP -->
+<!-- tab:Comprobar un SMTP -->
 
-Sends a email to app test email for checking correct SMTP configuration. 
+Envía un email a la dirección de prueba de la app para comprobar que la configuración del servidor SMTP es correcta.
 
-If you receive 200 status SMTP is working correctly. If this SMTP was disabled, it is enabled at this time.
+Si recibes un status 200 el servidor SMTP está funcionando correctamnte. Si estaba deshabilitado se habilitará en este momento.
 
-If you receive 406 status SMTP has errors. If this SMTP was enabled, it is disabled at this time.
+si recibes un status 406 el servidor SMTP tiene una configuración errónea. Si estaba habilitado se deshabilitará en este momento.
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 
 *POST* /private/smtps/check
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | SMTP id | Yes |  |
+|idapp | SMTP id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. SMTP not found
-2. App not found
+1. SMTP no encontrado
+2. App no encontrada
 
-... Other errors related with SMTP working.
+... otros errores relacionados con el funcionamiento del SMTP.
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
-*empty*
+*vacía*
 
 <!-- tabs:end -->
 

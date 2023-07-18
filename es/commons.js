@@ -12,25 +12,25 @@ function signUp()
 
 	if(email.length==0 || email2.length==0)
 	{
-		document.getElementById("msgsignUp").innerHTML = 'You must enter and repeat your email.';
+		document.getElementById("msgsignUp").innerHTML = 'Debes escribir y repetir tu email.';
 		return;
 	}
 
 	if(!validateEmail(email))
 	{
-		document.getElementById("msgsignUp").innerHTML = 'Please, enter a valid email address.';
+		document.getElementById("msgsignUp").innerHTML = 'Por favor, escribe una dirección de emial válida.';
 		return;
 	}
 
 	if(email.trim().toLowerCase() != email2.trim().toLowerCase())
 	{
-		document.getElementById("msgsignUp").innerHTML = 'Emails do no match.';
+		document.getElementById("msgsignUp").innerHTML = 'Las direcciones de email no coinciden.';
 		return;
 	}
     
     if(!isRecaptchaValidated)
 	{
-		document.getElementById("msgsignUp").innerHTML = 'Please, validate catcha!.';
+		document.getElementById("msgsignUp").innerHTML = 'Por favor, valida el captcha!.';
 		return;
 	}
 
@@ -58,15 +58,15 @@ function signUp()
 
 			if (r.status == 200)
 			{
-				document.getElementById("msgsignUp").innerHTML = 'We have sent you an email with instructions. Please, check your <b>junk mail / SPAM folder</b> too!.';
+				document.getElementById("msgsignUp").innerHTML = 'Te hemos enviado un email con instrucciones. Por favor, comprueba también la <b>carpeta de correo no deseado / SPAM</b>.';
 			}
 			else if (r.status == 406)
 			{
-				document.getElementById("msgsignUp").innerHTML = 'This email is already registered. If you don\'t remember your password, please, <a href="/xrequestnewpassword">try to request a new password</a>.';
+				document.getElementById("msgsignUp").innerHTML = 'Este email ya ha sido registrado. Si no recuerdas tu contraseña, por favor, <a href="/es/xrequestnewpassword">intenta pedir una nueva contraseña</a>.';
 			}
 			else
 			{
-				document.getElementById("msgsignUp").innerHTML = 'Sorry, can not sign up at this time. Please, try <a href="#" onclick="javascript:location.reload();">reloading this page</a> and revalidating captcha.';
+				document.getElementById("msgsignUp").innerHTML = 'Lo sentimos, no puedes registrarte en este momento. Por favor, intenta <a href="#" onclick="javascript:location.reload();">recargar la página</a> y re-validar el captcha.';
 			}
 		}            
 	};
@@ -83,25 +83,25 @@ function requestNewPassword()
 
 	if(email.length==0 || email2.length==0)
 	{
-		document.getElementById("msgsignUp").innerHTML = 'You must enter and repeat your email.';
+		document.getElementById("msgsignUp").innerHTML = 'Debes escribir y repetir tu email.';
 		return;
 	}
 
 	if(!validateEmail(email))
 	{
-		document.getElementById("msgsignUp").innerHTML = 'Please, enter a valid email address.';
+		document.getElementById("msgsignUp").innerHTML = 'Por favor, escribe una dirección de emial válida.';
 		return;
 	}
 
 	if(email.trim().toLowerCase() != email2.trim().toLowerCase())
 	{
-		document.getElementById("msgsignUp").innerHTML = 'Emails do no match.';
+		document.getElementById("msgsignUp").innerHTML = 'Las direcciones de email no coinciden.';
 		return;
 	}
     
     if(!isRecaptchaValidated)
 	{
-		document.getElementById("msgsignUp").innerHTML = 'Please, validate catcha!.';
+		document.getElementById("msgsignUp").innerHTML = 'Por favor, valida el captcha!.';
 		return;
 	}
 
@@ -129,15 +129,15 @@ function requestNewPassword()
 
 			if (r.status == 200)
 			{
-				document.getElementById("msgsignUp").innerHTML = 'We have sent you an email with instructions. Please, check your <b>junk mail / SPAM folder</b> too!.';
+				document.getElementById("msgsignUp").innerHTML = 'Te hemos enviado un email con instrucciones. Por favor, comprueba también la <b>carpeta de correo no deseado / SPAM</b>.';
 			}
 			else if (r.status == 406)
 			{
-				document.getElementById("msgsignUp").innerHTML = 'This user must be activated first.';
+				document.getElementById("msgsignUp").innerHTML = 'Debes activar el usuario primero.';
 			}
 			else
 			{
-				document.getElementById("msgsignUp").innerHTML = 'Sorry, can not sign up at this time. Please, try <a href="#" onclick="javascript:location.reload();">reloading this page</a> and revalidating captcha.';
+				document.getElementById("msgsignUp").innerHTML = 'Lo sentimos, no puedes registrarte en este momento. Por favor, intenta <a href="#" onclick="javascript:location.reload();">recargar la página</a> y re-validar el captcha.';
 			}
 		}            
 	};
@@ -154,19 +154,19 @@ function onRecaptchaSuccess() {
   captchatoken = grecaptcha.getResponse();
 	isRecaptchaValidated = true;
 	document.getElementById("msgsignUp").style.display = 'block';
-	document.getElementById("msgsignUp").innerHTML = 'Captcha validated correctly.';
+	document.getElementById("msgsignUp").innerHTML = 'Captcha validado correctamente.';
 }
 
 function onRecaptchaError() {
 	isRecaptchaValidated = false;
 	document.getElementById("msgsignUp").style.display = 'block';
-	document.getElementById("msgsignUp").innerHTML = 'You must validate captcha.';
+	document.getElementById("msgsignUp").innerHTML = 'Debes validar el captcha.';
 }
 
 function onRecaptchaResponseExpiry() {
 	isRecaptchaValidated = false;
 	document.getElementById("msgsignUp").style.display = 'block';
-	document.getElementById("msgsignUp").innerHTML = 'Captcha expired. Try again, please.';
+	document.getElementById("msgsignUp").innerHTML = 'Captcha caducado. Intenta validarlo de nuevo, por favor.';
   }
 
 

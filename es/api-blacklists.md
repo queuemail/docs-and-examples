@@ -1,40 +1,40 @@
 
 
-Using these endpoint you manage blacklists.
+Usa estas llamadas para manejar las blacklist.
 
 <!-- tabs:start -->
 
 
-<!-- tab:Add an email to blacklist -->
+<!-- tab:Añadir email a la blacklist -->
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *POST* /private/blacklist/add
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|email | Email to blacklist | Yes |  |
+|idapp | App id | Sí |  |
+|email | Email a añadir a la blacklist | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. App not found
+1. App no encontrada
 
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -47,39 +47,39 @@ You will get a JSON response like this:
 }
 ```
 
-- **idsending** email sending id if blacklist has been created due to an email sending.
-- **ip** ip origin of blacklist add.
-- **created** when the email has been added to blacklist.
+- **idsending** id del email enviado en el caso de que se haya añadido a través de un email recibido.
+- **ip** ip origen desde donde se ha realizado la inclusión del email en la blacklist.
+- **created** cuando ha sido realizada la inclusión del email en la blacklist.
 
-<!-- tab:Blacklist info -->
+<!-- tab:Información de Blacklist  -->
 
-Get blacklist & auto-blacklist info by app.
+Obtener información blacklist y auto-blacklist por app.
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/blacklist/findByApp
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|page | Page number | Yes |  |
-|size | Page size | Yes |  |
+|idapp | App id | Sí |  |
+|page | Número de página | Sí |  |
+|size | Tamaño de página | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -153,77 +153,77 @@ You will get a JSON response like this:
 
 
 
-<!-- tab:Check if an email is blacklisted -->
+<!-- tab:Comprobar si un email está en la blacklist -->
 
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/blacklist/isBlackListed
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|email | Email address to check | Yes |  |
+|idapp | App id | Sí |  |
+|email | Email a comprobar | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|500 | Error interno|
 
 
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
-*true* or *false*  (text format, not JSON)
-
-
+*true* o *false*  (en formato texto, no JSON)
 
 
 
-<!-- tab:Remove an email from blacklist -->
+
+
+<!-- tab:Eliminar un email de la blacklist -->
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 
 *POST* /private/blacklist/remove
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|email | Email address to check | Yes |  |
+|idapp | App id | Sí |  |
+|email | Email a eliminar | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. Mail not found
-2. Mail added by the recipient. Cannot delete it
+1. Email no encontrado.
+2. Email añadido por un destinatario. No se puede borrar.
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
-*empty*
+*vacía*
 
 <!-- tabs:end -->
 

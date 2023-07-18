@@ -1,14 +1,14 @@
-Webhooks feature let you to configure your own URLs in order to run processes when an event occurs at queuemail.dev.
+La característica de Webhooks permite configurar tus propias URLS para que ejecuten procesos en tu sistema una vez ocurre un evento en queuemail.dev.
 
-There are the following webhook events:
+Existen los siguientes eventos para webhooks:
 
-- *sending_finished*: URL is called with param *qm_idsending* (id of email sent) when email is sucessfully sent.
-- *sending_error*: URL is called with param *qm_idsending* (id of email sent) when email send fails.
-- *tracking_opened*: URL is called with params *qm_idsending* (id of email sent) and *qm_email* (recipient email) when email is opened.
-- *tracking_clicked*: URL is called with params *qm_idsending* (id of email sent), *qm_email* (recipient email) and *qm_url* (url clicked) when recipient clicks a link email (qm_url).
-- *blacklisted_added*: URL is called with params *qm_idsending* (id of email sent) and *qm_email* (email address to blacklist) when an email address is added to blacklist.
+- *sending_finished*: Se llama la URL especificada con el parámetro *qm_idsending* (id del email enviado) cuando el email es enviado con éxito.
+- *sending_error*: Se llama la URL especificada con el parámetro *qm_idsending* (id del email enviado) cuando el envío del email falla.
+- *tracking_opened*: Se llama la URL especificada con el parámetros *qm_idsending* (id del email enviado) y *qm_email* (dirección de email del destinatario) cuando el email es abierto por el destinatario.
+- *tracking_clicked*: Se llama la URL especificada con el parámetros *qm_idsending* (id del email enviado), *qm_email* (dirección de email del destinatario) y *qm_url* (url en la que se hace click) cuando el destinatario hace click en la url *qm_url*.
+- *blacklisted_added*: Se llama la URL especificada con el parámetros *qm_idsending* (id del email enviado) y *qm_email* (dirección de email a incluir en blacklist) cuando esa dirección de email se va a incluir blacklist.
 
-You can configure your webhooks URLs when [creating/editing your app](api-apps.md).
+Puedes configurar las URLs de webhook cuando [creas/editas tu app](api-apps.md).
 
 
 

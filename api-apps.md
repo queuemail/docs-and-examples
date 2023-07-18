@@ -46,7 +46,6 @@ Specific errors:
 1. Already exists an APP with the same name
 2. App not found
 3. Must provide a name
-4. You can choose between setting originserver (backend apps) or setting origindomain (frontend apps)
 
 
 

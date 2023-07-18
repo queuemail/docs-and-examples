@@ -1,16 +1,16 @@
-Apps always log email activity and errors. 
+Las apps siempre hacen log de actividad y errores.
 
-Log entries can be related with:
+Los registros de este log pueden estar relacionados con:
 
-- Emails sucessfully sent.
-- SMTP errors.
-- Erros related with domain/MX DNS zones.
-- Apps/users deactivated.
-- Blacklist/auto-blacklist email addresses.
+- Emails correctamente enviados.
+- Errores de los servidores SMTP.
+- Errores relacionados con dominios o registros DNS MX.
+- Apps/usuarios desactivados.
+- Direcciones de correo en blacklist/auto-blacklist.
 
-... and more.
+... y más.
 
-These log entries are deleted by 30 days, but you can use [get email logs](api-logs.md) call for saving pemanent them in your own database.
+Estos registros son borrados cada 30 días, pero puedes [obtener la información de log](api-logs.md) en cualquier momento para grabar de forma permanente esos datos en tu propia base de datos.
 
 
 

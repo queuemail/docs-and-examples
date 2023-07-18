@@ -74,8 +74,8 @@
 
 
   <nav>
-    <a href="/">Home</a>
-    <a style="font-weight:bold;color:#FF0000;" href="/#/xsignup">Sign Up</a>
+    <a href="/">English</a>
+    <a href="/es/index.html#/">Spanish</a>
   </nav>
 
   <div id="app">Loading...</div>
@@ -84,10 +84,11 @@
     window.$docsify = {
     
       executeScript: true,
+
+
       search: {
       maxAge: 86400000, // Expiration time, the default one day
       paths: 'auto', // or 'auto'
-      placeholder: 'Type to search',
 
       // Localization
       placeholder: {
@@ -95,7 +96,7 @@
         '/': 'Type to search'
       },
 
-      noData: 'No Results!',
+
 
       // Localization
       noData: {
@@ -105,7 +106,7 @@
 
 
       // Headline depth, 1 - 6
-      depth: 2,
+      depth: 6,
 
       hideOtherSidebarContent: false, // whether or not to hide other sidebar content
     },
@@ -117,8 +118,12 @@
       
       loadSidebar: true,
       autoHeader: true,
+
       alias: {
-      '/.*/_sidebar.md': '/_sidebar.md'},
+      '/.*/_sidebar.md': '/_sidebar.md',
+      "/es" : "/es/index.html",
+      "/es/(.*)" : "/es/$1"
+    },
 
       tabs: {
     persist    : true,      // default

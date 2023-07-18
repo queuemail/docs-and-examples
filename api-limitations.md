@@ -3,7 +3,7 @@
 
 - You can send up to 10,000 emails per month. This is quite a bit for most of small to medium projects.
 - You can only use your SMTP servers or 3rd party SMTP servers (Google, Outlook, etc.). No access to Queuemail.dev professional SMTP severs.
-- Logs (if activated) are removed by 30 days.
+- Logs are removed by 30 days.
 - Data are hosted in our data infraestructure. No access to configure your own infraestructure (database).
 - Normal queue processing (no priority for send emails faster).
 

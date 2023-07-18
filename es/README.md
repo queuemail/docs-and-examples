@@ -1,26 +1,26 @@
-# QUEUEMAIL.DEV - Reliable email delivery API. Free tier. Send asynchronously.
+# QUEUEMAIL.DEV - API confiable para envío de emails. Capa gratuita. Envía de forma asíncrona
 
-Main docs page here --> [https://docs.queuemail.dev/](https://docs.queuemail.dev/)
+Página principa de documentación aquí --> [https://docs.queuemail.dev/](https://docs.queuemail.dev/es/)
 
-QUEUEMAIL.DEV allows you to send emails via API using one or more SMTP servers in order to ensure deliverability and avoid SMTP stress.
+QUEUEMAIL.DEV te permite enviar emails, vía API, usando uno o más servidores SMTP para incrementar la capacidad de entrega y evitar errores de sobreuso y estrés en los servidores SMTP.
 
-Some sample features:
+Algunos ejemplos de características que ofrece:
 
-- You can program sending emails in a synchronous or asynchronous way: With [logs endpoint](api-logs.md) you can check send status for every email sent. 
+- Puedes programar envío de emails de forma síncrona o asíncrona: Con el [endpoint para consulta de logs](api-logs.md) puedes comprobar el estado de envío para cada email enviado.
 
-- Also, with [webhooks](features-webhooks.md), you can run processes when an event (like email sucessfully sent) occurs for a complete integration.
+- También, con [los webhooks](features-webhooks.md), puedes ejectuar procesos en tu sistema o sistemas de terceros cuando un evento (como por ejemplo, un envío con éxisto) ocurra para así tener una integración completa.
 
-- With [sending email endpoint](api-emails.md) you can discard sending errors before you start a SMTP session.
+- Con [endpoint para envío de emails](api-emails.md) puedes descartar errores de envío antes de forzar el comienzo de una sesión SMTP.
 
-- Track opened emails and clicked email links with [tracking endpoint](api-tracking.md).
+- Puedes hacer tracking de emails abiertos y enlaces donde se ha hecho click con [endpoint de tracking](api-tracking.md).
 
-- ...and much more at [docs](https://docs.queuemail.dev).
+- ...y mucho más en la [documentación](https://docs.queuemail.dev/es).
 
-Free tier does not support Queuemail professional SMTP servers. So you must to configure [free SMTP servers](other-freesmtps.md) or your custom SMTP server.
+La capa gratuita no incluye el uso de los servidores SMTP profesionales de Queuemail. Por tanto, para usar esta capa gratuita, puedes configurar [servidores SMTP grauitos](other-freesmtps.md) o bien usar tu propio servidor SMTP.
 
 
 
-### CLIENTS AND EXAMPLES:
+### CLIENTES Y EJEMPLOS:
 
-* [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
+* [queuemail-client: Cliente básico en Java para usar la API de QUEUEMAIL.DEV](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
 

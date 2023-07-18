@@ -1,5 +1,5 @@
-The data that is collected is used within our service to improve your experience and only that. All data is secure and safe coming from our service. None of the data collected from queuemail.dev is being shared with any 3rd party service.
+Los datos que se recopilan se utilizan dentro de nuestro servicio son para mejorar su experiencia y solo eso. Todos los datos provenientes de nuestro servicio están seguros y protegidos. Ninguno de los datos recopilados de queuemail.dev se comparte con ningún servicio de terceros.
 
-Privacy Respected Analytics: We care about your privacy and value every aspect of it. We do not perform any type of tracking across our services. Learn more about our privacy focused analytics service and try it out for yourself.
+Análisis de privacidad: Nos preocupamos por su privacidad y valoramos cada aspecto de la misma. No realizamos ningún tipo de seguimiento a través de nuestros servicios. 
 
-Data Security: We are not in the business to sell data. All data used ever on the platform is for improving your quality of the service provided.
+Seguridad de datos: No estamos en el negocio para vender datos. Todos los datos utilizados en la plataforma son exclusivamente para mejorar la calidad del servicio prestado.

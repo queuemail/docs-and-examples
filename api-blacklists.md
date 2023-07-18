@@ -201,7 +201,7 @@ You will get a JSON response like this:
 |Parameter|Description|Required| Default |
 |---------|-----------|--------|---------|
 |idapp | App id | Yes |  |
-|email | Email address to check | Yes |  |
+|email | Email address to remove | Yes |  |
 
 **STATUS CODES:**
 

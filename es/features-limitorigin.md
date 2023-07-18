@@ -1,12 +1,12 @@
-When [creating/editing your app](api-apps.md) optionally you can set a origin server or IP in order to limit servers/IPs from which [call to send emails](api-emails.md) can be made.
+Cuando [crees o edites una app](api-apps.md), opcionalmente puedes especificar el host o IP de origen para limitar que solo peticiones desde ese host/IP para [enviar emails](api-emails.md) sean permitidas.
 
-If you don't set this parameter your app can be used from any IP without checking request origin.
+Si no utilizas este parámetro tu app podrá ser usada desde cualquier IP sin comprobar su origen.
 
-For specify origin server you must use *originserver* parameter with values like "*myserver.com*" or "*192.168.0.1*". 
+Para especifivar el host origen debes usar el parámetro *originserver* con valores como "*myserver.com*" o "*192.168.0.1*". 
 
-Also, you can specify multiple servers/IPs with comma separated values: "*myserver.com,192.168.0.1*"
+También puedes especificar múltiples hosts/IPs con valores separados por comas: "*myserver.com,192.168.0.1*"
 
-If you are using this feature, when sending emails, you will receive error if the origin email does not match with *originserver* specified in your app. At the error description you will get received server/IP as origin of your request. Thus, you can fix *originserver* whith the correct value.
+Si usas esta caraterística y al enviar emails recibes un error es debido a que el origen de la llamada no coincide con el valor de *originserver* en tu app. En la descripción del error recibirás el host/IP que ha sido considerado para tu petición. Así puedes cambiar el valor de *originserver* con el valor adecuado.
 
 
 

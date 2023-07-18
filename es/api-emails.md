@@ -1,70 +1,69 @@
 
+Usando estas llamadas puedes enviar emails (meterlos en cola), obtener información del envío del email, cancelar (sacar de la cola) emails y eliminar un email que haya terminado su envío.
 
-Using these endpoint you can send (queue up) emails, get emails send information, cancel (dequeue) emails and remove a finished (sent) emails.
 
 <!-- tabs:start -->
 
 
-<!-- tab:Send (queue up) an email -->
+<!-- tab:Enviar (meter en la cola) un email -->
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *POST* /private/emails/send
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|from | Email from address | No | App default from email |
-|fromname | Name from address | No | App default from name  |
-|tos | Recipients email addresses (comma separeted)  | Yes  |  |
-|tonames | Recipients names (comma separated) | No | Recipients email addresses  |
-|ccs | Carbon copy recipients email addresses (comma separated) | No |  |
-|bccs | Blind carbon copy recipients email addresses (comma separated) | No |  |
-|replyto | Reply email address  | No |  |
-|mimetype | text/html or text/plain  | No | text/plain |
-|subject | Email subject  | Yes |  |
-|subjectencoding | Email subject encoding (UTF-8, ISO-8859-1, etc.) | No | UTF-8  |
-|body | Email body  | Yes |  |
-|bodyencoding | Email body encoding (UTF-8, ISO-8859-1, etc.)  | No | UTF-8  |
-|attachments | Email file attachments  | No |  |
-|urlattachments | Email url attachments  | No |  |
-|attachmenttype | Email attachments type (FILE / URL)  | No | FILE |
-|includetracking | Include tracking in email?  | No | false |
-|includeunregisterlink | Include unregister link (blacklist) in email?  | No | false |
+|idapp | App id | Sí |  |
+|from | Dirección de origen del email | No | Dirección de origen por defecto de la app |
+|fromname | Nombre de origen del email | No | Nombre de origen por defecto de la app  |
+|tos | Direcciones de remitentes (separadas por coma)  | Sí  |  |
+|tonames | Nombres de remitentes (separadas por coma) | No | Direcciones de remitentes  |
+|ccs | Direcciones de remitentes en copia (separadas por com) | No |  |
+|bccs | Direcciones de remitentes en copia oculta (separadas por com) | No |  |
+|replyto | Dirección de respuesta  | No |  |
+|mimetype | text/html o text/plain  | No | text/plain |
+|subject | Asunto del email  | Sí |  |
+|subjectencoding | Codificación del asunto del email (UTF-8, ISO-8859-1, etc.) | No | UTF-8  |
+|body | Cuerpo del email | Sí |  |
+|bodyencoding | Codificación del cuerpo del email (UTF-8, ISO-8859-1, etc.)  | No | UTF-8  |
+|attachments | Ficheros adjuntos al email | No |  |
+|urlattachments | Url's adjuntas al email | No |  |
+|attachmenttype | Tipo de adjuntos (FILE / URL)  | No | FILE |
+|includetracking | ¿Incluir tracking?  | No | false |
+|includeunregisterlink | ¿Incluir enlace de baja (blacklist)?  | No | false |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. App not found
-2. Remote server not allowed: xxxx
-3. Remote domain not allowed: xxxx
-3. No active SMTP for App
-4. Sender domain does not exist
-5. Cannot use includetracking=true if you provide CCS or BCCS. Please, use includetracking=false or remove CCS and BCCS email addressses
-6. Cannot use includeUnregisterLink=true if you provide CCS or BCCS. Please, use includeUnregisterLink=false or remove CCS and BCCS email addressses
-7. *from* is not a valid email address
-9. *to* is not a valid email address
-10. *replyto* is not a valid email address
-11. *replyto* domain has not MX records
-12. All TO recipients are invalid
-13. All TO recipients are blacklisted
-14. For use URL type in attachments your app must be configured with retaindata=true
-15. Emails limit per month exceeded.
-
+1. App no encontrada
+2. Host origen no permitido: xxxx
+3. No ha SMTP activo para esta app
+4. El dominio del remitente no existe
+5. No se puede usar includetracking=true si usas CCS o BCCS. Por favor, usa includetracking=false o elimina las direcciones de CCS y BCCS
+6. No se puede usar includeUnregisterLink=true si usas CCS o BCCS. Por favor, usa includetracking=false o elimina las direcciones de CCS y BCCS
+7. *from* no es una dirección de correo válida
+9. *to* no es una dirección de correo válida
+10. *replyto* no es una dirección de correo válida
+11. *replyto* el dominio no tiene registros MX
+12. Ningún destinatario es válido.
+13. Todos ls destinatarios están incluidos en una blacklist
+14. Para usar el tipo de adjunto URL debes configurar tu app con retaindata=true
+15. Límite de enviós de emails por mes excedido
 
 
-You will get a JSON response like this:
+
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -81,46 +80,46 @@ You will get a JSON response like this:
 }
 ```
 
-- **status** field = 'Q' means email has been queued up correctly.
-- **inittime** is the estimated time for sending email.
-- **logsdeleledby** it the time when email logs will be deleted.
-- **attachments** array with all url attachments.
-- **blacklisted** array with all recipient emails addresses blacklisted.
-- **autoblacklisted** array with all recipient emails addresses auto-blacklisted.
-- **notvalidrecipients** array with all recipient not valid emails addresses.
+- **status** El valor = 'Q' significa que el email ha sido entrado en la cola de envío con éxito.
+- **inittime** hora aproximada de envío del email.
+- **logsdeleledby** cuando los logs del email serán eliminados.it the time when email logs will be deleted.
+- **attachments** lista de adjuntos (urls).
+- **blacklisted** lista de destinatarios a los que no se enviará el email por estar incluidos en la blacklist.
+- **autoblacklisted** lista de destinatarios a los que no se enviará el email por estar incluidos en la auto-blacklist.
+- **notvalidrecipients** lista destinatarios a los que no se enviará el email por no ser direcciones de correo válidas.
 
 
-<!-- tab:Get email info -->
+<!-- tab:Obtener información de un envío de email -->
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *GET* /private/emails/info
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
+|idemail | Email id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
-1. Mail not found
+1. Email no encontrado.
 
-**RESPONSE:**
+**RESPUESTA:**
 
 
-You will get a JSON response like this:
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -137,63 +136,63 @@ You will get a JSON response like this:
 ```
 
 - **status** = 
-    - 'Q' means email has been queued up correctly. 
-    - 'R' means email is been sent at now. 
-    - 'C' means email has been cancelled. 
-    - 'E' means email send has failled. 
-    - 'F' means email has been sent sucessfully.
-- **inittime** is the estimated time for sending email.
-- **logsdeleledby** it the time when email logs will be deleted.
-- **attachments** array with all url attachments.
-- **blacklisted** array with all recipient emails addresses blacklisted.
-- **autoblacklisted** array with all recipient emails addresses auto-blacklisted.
-- **notvalidrecipients** array with all recipient not valid emails addresses.
-- **log** array with all log email information.
-- **opened** array with all recipient emails time addresses & open time.
+    - 'Q' significa que el email ha sido entrado en la cola correctamente.
+    - 'R' significa que el envío del email está siendo procesado en este momento.
+    - 'C' significa que el envío del email ha sido cancelado.
+    - 'E' significa que el envío del email ha fallado.
+    - 'F' significa que el envío del email ha finalizado con éxito.
+ **inittime** hora aproximada de envío del email.
+- **logsdeleledby** cuando los logs del email serán eliminados.it the time when email logs will be deleted.
+- **attachments** lista de adjuntos (urls).
+- **blacklisted** lista de destinatarios a los que no se enviará el email por estar incluidos en la blacklist.
+- **autoblacklisted** lista de destinatarios a los que no se enviará el email por estar incluidos en la auto-blacklist.
+- **notvalidrecipients** lista destinatarios a los que no se enviará el email por no ser direcciones de correo válidas.
+- **log** lista con toda la información de log de actividad y error del email.
+- **opened** lista con todos los destinatarios que hah abierto el email (momento y dirección de correo).
 
 
 
 
-<!-- tab:Cancel an email send -->
+<!-- tab:Cancelar el envío de un email -->
 
 
 
 
-**REQUEST:** 
+**PETICIÓN:** 
 
 *POST* /private/emails/cancel
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
+|idemail | Email id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
 
-Specific errors:
+Error específicos:
 
-1. Some recipients have been processed. Sending cannot be cancelled
-2. Mail not found
-3. App not found
-4. Sending finished or in process. It cannot be cancelled
-
-
+1. Algunos destinatarios ya han sido procesados. No se puede cancelar el envío.
+2. Email no encontrado.
+3. App no encontrada.
+4. El envío ha finalizado o está en proceso. No se puede cancelar el envío.
 
 
 
-**RESPONSE:**
 
 
-You will get a JSON response like this:
+**RESPUESTA:**
+
+
+Recibirás una respuesta en formato JSON como esta::
 
 ```
 {
@@ -207,45 +206,46 @@ You will get a JSON response like this:
 }
 ```
 
-**status** field = C means the email send has been canceled.
+**status** el valor = C significa que el envío ha sido cancelado.
 
 
 
-<!-- tab:Remove an email -->
+<!-- tab:Eliminar un email -->
 
-Remove a finished email. Also remove all logs and tracking info.
+Elimina un email finalizado. También elimina toda la información de log y tracking asociada.
 
-**REQUEST:** 
+
+**PETICIÓN:** 
 
 
 *POST* /private/emails/remove
 
-|Parameter|Description|Required| Default |
+|Parámetro|Descripción|Requerido| Valor por defecto|
 |---------|-----------|--------|---------|
-|idemail | SMTP id | Yes |  |
+|idemail | SMTP id | Sí |  |
 
-**STATUS CODES:**
+**CÓDIGOS DE ESTADO:**
 
 |Code|Description|
 |----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+|200 | Operación correcta |
+|400 | Falta parámetro obligatorio o tipo de parámetro incorrecto |
+|401 | Usuario no autorizado |
+|403 | Credenciales no válidas |
+|406 | Error específico |
+|500 | Error interno|
 
-Specific errors:
+Error específicos:
 
 1. Mail not found
-2. App not found
-3. Unfinished sendings cannot be removed
+2. App no encontrada
+3. Los envíos no finalizados no pueden ser eliminados.
 
 
 
-**RESPONSE:**
+**RESPUESTA:**
 
-*empty*
+*vacía*
 
 <!-- tabs:end -->
 

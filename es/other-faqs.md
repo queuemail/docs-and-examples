@@ -1,7 +1,15 @@
 
-### Can I send emails using my custom domain email address?
+### Puedo enviar emails usando direcciones de mi propio dominio?
 
-With free tier: Some SMTP servers like Gmail/Google allows you to send emails using your email address. Follow the instructions for each SMTP server to set up sending with your custom domain.
 
-With profesional custom Queuemail SMTP servers: We will send you instructions to make domain DNS zone changes in order you can send emails using your custom domain.
+* Con la capa gratuita: 
+
+    - Puedes usar un servidor SMTP de tu propio dominio y podrás enviar sin problema usando direcciones de ese dominio.
+
+    O bien...
+
+    - Algunos servidores SMTP como Gmail/Google permiten enviar email usando tu dirección de correo. Sigue las instrucciones para cada servidor SMTP para poder enviar emails con tu propio dominio.
+
+
+* Con los servidores SMTP profesionales de Queuemail: Te enviaremos instrucciones para hacer los cambios correspondientes en las zonas DNS de tu dominio paa que así puedas enviar con direcciones de tu dominio usando nuestros servidores profesionales.
 

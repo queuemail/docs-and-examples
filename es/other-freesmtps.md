@@ -1,5 +1,5 @@
 
-You can get a free SMTP server in the following links:
+Puedes conseguir un servidor SMTP gratuito en los siguientes enlaces:
 
 1. <a href="https://kinsta.com/blog/gmail-smtp-server/" target="_blank">Gmail (Google)</a> 
 2. <a href="https://support.microsoft.com/en-au/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040" target="_blank">Outlook</a> 
@@ -13,5 +13,4 @@ You can get a free SMTP server in the following links:
 10. <a href="https://www.mailgun.com/pricing/" target="_blank">Mailgun</a> 
 11. <a href="https://mailtrap.io/pricing/" target="_blank">Mailtrap</a> 
 
-
-Want to include a new SMTP server in this list? Please, contact <a href="info@queuemail.dev">info@queuemail.dev</a>.
+¿Quieres incluir un nuevo servidor SMTP en esta lista? Por favor, contacta con nosotros en <a href="info@queuemail.dev">info@queuemail.dev</a>.

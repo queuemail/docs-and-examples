@@ -31,7 +31,7 @@
 
 </form>
 
-If you are already registered and don't remeber your passwor, please [get a new password here](xrequestnewpassword.md).
+If you are already registered and don't remeber your password, please [get a new password here](xrequestnewpassword.md).
 
 <!--FIN RPP-->
 
