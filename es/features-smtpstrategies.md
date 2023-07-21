@@ -1,4 +1,4 @@
-Puedes mejorar la toleranzia a fallos de tu app si defines más de un servidor SMTP.
+Puedes mejorar la tolerancia a fallos de tu app si defines más de un servidor SMTP.
 
 Si un servidor SMTP falla en el envío, entonces la app intentará con otro distinto.
 
