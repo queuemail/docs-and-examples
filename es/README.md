@@ -1,4 +1,4 @@
-# QUEUEMAIL.DEV - API confiable para envío de emails. Capa gratuita. Envía de forma asíncrona
+# QUEUEMAIL.DEV - API confiable para envío de emails. Capa gratuita. Envía de forma asíncrona.
 
 Página principa de documentación aquí --> [https://docs.queuemail.dev/](https://docs.queuemail.dev/es/)
 
