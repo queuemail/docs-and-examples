@@ -5,7 +5,7 @@ If you don't have an own SMTP server you can [get a free SMTP server here](other
 
 <!-- tabs:start -->
 
-<!-- tab:Create/edit an SMTP -->
+<!-- tab:Create/edit a SMTP -->
 
 
 **REQUEST:** 

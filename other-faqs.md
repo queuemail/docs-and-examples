@@ -8,7 +8,7 @@ The solution is to implement a local queue to store failed emails when QUEUEMAIL
 ### Can I send emails using my custom domain email address?
 
 * With free tier: 
-    - You can use an SMTP server from your own domain and you can send without problems using addresses from that domain.
+    - You can use a SMTP server from your own domain and you can send without problems using addresses from that domain.
 
     Or..
 
