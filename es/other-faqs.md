@@ -1,4 +1,12 @@
 
+
+### ¿Qué sucede si hay cortes de red o caída del servidor mientras se usa la la API de QUEUEMAIL.DEV?
+
+La solución es implementar una cola loca para almacenar los emails que fallan cuando QUEUEMAIL no responde.
+
+El ejemplo [Hardy client](examples-hardyservice.md) muestra como implementar esta cola local.
+
+
 ### Puedo enviar emails usando direcciones de mi propio dominio?
 
 

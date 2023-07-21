@@ -19,11 +19,16 @@ Some sample features:
 Free tier does not support Queuemail professional SMTP servers. So you must to configure [free SMTP servers](other-freesmtps.md) or your custom SMTP server.
 
 
+#### CLIENTS:
 
-### CLIENTS AND EXAMPLES:
+* [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client).
 
-* [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
+#### EXAMPLES:
+
+* [Hardy Client: A robust Java client to use QUEUEMAIL.DEV API](examples-hardyservice.md).
 
 
 ### CHANGELOG:
 * **2023-07-18**: Added **sendate** parameter to [sending emails endpoint](api-emails.md) in order to schedule emails to send.
+
+* **2023-07-21**: Added example: [Hardy Client: A robust Java client to use QUEUEMAIL.DEV API](examples-hardyservice.md).

@@ -20,10 +20,17 @@ La capa gratuita no incluye el uso de los servidores SMTP profesionales de Queue
 
 
 
-### CLIENTES Y EJEMPLOS:
+### CLIENTES:
 
-* [queuemail-client: Cliente básico en Java para usar la API de QUEUEMAIL.DEV](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
+* [queuemail-client: Cliente básico en Java para usar la API de QUEUEMAIL.DEV](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client).
+
+### EJEMPLOS:
+
+* [Hardy Client: Un cliente en Java robusto para usar QUEUEMAIL.DEV API](examples-hardyservice.md).
+
 
 ### REGISTRO DE CAMBIOS:
 
 * **2023-07-18**: Se añade el parámetro **sendate** a la llamada para [enviar emails](api-emails.md) que permite programar envíos en el futuro.
+
+* **2023-07-21**: Añadido el ejemplo: [Hardy Client: Un cliente en Java robusto para usar QUEUEMAIL.DEV API](examples-hardyservice.md).

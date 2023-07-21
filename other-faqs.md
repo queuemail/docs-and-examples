@@ -1,3 +1,9 @@
+### What happens if there are network outages or server downtime while calling QUEUEMAIL.DEV API?
+
+The solution is to implement a local queue to store failed emails when QUEUEMAIL.DEV does not respond.
+
+[Hardy client example](examples-hardyservice.md) shows you how to implement this local queue.
+
 
 ### Can I send emails using my custom domain email address?
 
