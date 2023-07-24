@@ -7,6 +7,12 @@ La solución es implementar una cola local para almacenar los emails que fallan 
 El ejemplo [Hardy client](examples-hardyservice.md) muestra como implementar esta cola local.
 
 
+### ¿Cuántas peticiones por minuto puedo hacer a la API?
+
+Los servidores de QUEUEMAIL.DEV implementan proteccion contra ataques de fuerza bruta o DDoS por lo que es buena idea espaciar tus peticiones a la API en al menos 1 segundo. No pasa nada si haces más peticiones en 1 segundo, el sistema de protección evalúa otros parámetros para saber si se trata de un ataque o un uso lícito de la API pero en cualquier caso te recomendamos que siempre implemente un [envío robusto con cola local](examples-hardyservice.md) para que si en un momento dado tu IP de origen es baneada temporalmente, la cola local se encargue de repetir los envíos de emails.
+
+
+
 ### ¿Puedo enviar emails usando direcciones de mi propio dominio?
 
 

@@ -4,6 +4,9 @@ The solution is to implement a local queue to store failed emails when QUEUEMAIL
 
 [Hardy client example](examples-hardyservice.md) shows you how to implement this local queue.
 
+### How many requests per minute can I make to the API?
+
+QUEUEMAIL.DEV servers implement protections against brute force or DDoS attacks so it is a good idea to space out your API requests by at least 1 second. No problem if you make more requests in 1 second, the protection system evaluates other parameters to find out if it is an attack or a normal use API but in any case we recommend that you always implement a [robust sending with local queue](examples-hardyservice.md) so that if at any given moment your source IP is temporarily banned, local queue will take care of retry sending emails.
 
 ### Can I send emails using my custom domain email address?
 
