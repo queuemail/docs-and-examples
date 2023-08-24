@@ -17,6 +17,7 @@ If you don't have an own SMTP server you can [get a free SMTP server here](other
 |idsmtp | SMTP id | Yes for editing, No for creating |  |
 |idapp | App id | Yes |  |
 |priority | Priority (0=highest priority)  | No | 10 |
+|host | SMTP host  | Yes  |  |
 |port | SMTP port  | Yes  |  |
 |username | SMTP user name  | Yes  |
 |password | SMTP user password | Yes |  |
