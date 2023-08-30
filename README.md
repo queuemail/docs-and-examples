@@ -31,4 +31,4 @@ Free tier does not support Queuemail professional SMTP servers. So you must to c
 ### CHANGELOG:
 * **2023-07-21**: Added example: [Hardy Client: A robust Java client to use QUEUEMAIL.DEV API](examples-hardyservice.md).
 
-* **2023-07-18**: Added *sendate* parameter to [sending emails endpoint](api-emails.md) in order to schedule emails to send.
+* **2023-07-18**: Added *senddate* parameter to [sending emails endpoint](api-emails.md) in order to schedule emails to send.
