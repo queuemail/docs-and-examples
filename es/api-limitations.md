@@ -2,7 +2,7 @@
 #### Debes considerar que la **capa gratuita de la API** tiene las siguientes limitaciones:
 
 - Puedes enviar hasta 10.000 emails por mes. Esto es suficiente para la mayoría de proyectos pequeños y medianos.
-- PUedes usar solamente tus propios servidores SMTP o bien servidores SMTP de terceros (Google, Outlook, etc.). No tienes acceso a los servidores SMTP profesionales de Queuemail.dev.
+- Puedes usar solamente tus propios servidores SMTP o bien servidores SMTP de terceros (Google, Outlook, etc.). No tienes acceso a los servidores SMTP profesionales de Queuemail.dev.
 - Los logs son eliminados a los 30 días.
 - Todos los datos son almacenados en nuestra infraestructura. No tienes acceso a configurar tu propia infraestructura (base de datos).
 - Procesamiento de cola normal (no tienes prioridad para enviar los emails más rápido).

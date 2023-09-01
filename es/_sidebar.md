@@ -11,13 +11,14 @@
 * [Limitaciones de la API](api-limitations.md)
 * [Acceso a la API](api-access.md)
 * [Login](api-login.md)
-* [Apps](api-apps.md)
-* [Servidores SMTP](api-smtps.md)
 * [Emails](api-emails.md)
 * [Blacklists](api-blacklists.md)
 * [Logs](api-logs.md)
 * [Tracking](api-tracking.md)
 
+### &nbsp; Panel de control:
+* [Apps](api-apps.md)
+* [Servidores SMTP](api-smtps.md)
 
 ### &nbsp; Otros:
 * [Preguntas frecuentes](other-faqs.md)
