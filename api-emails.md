@@ -1,6 +1,6 @@
 
 
-Using these endpoint you can send (queue up) emails, get emails send information, cancel (dequeue) emails and remove a finished (sent) emails.
+Using these endpoints you can send (queue up) emails, get emails send information, cancel (dequeue) emails and remove a finished (sent) emails.
 
 <!-- tabs:start -->
 

@@ -1,6 +1,6 @@
 
 
-Using these endpoint you manage blacklists.
+Using these endpoints you manage blacklists.
 
 <!-- tabs:start -->
 
