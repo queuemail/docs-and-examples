@@ -1,12 +1,16 @@
-Apps, by default, retain subject and body data **until email is sucessfully sent**. Then, these data are permanently removed.
+Apps, by default, just retain subject and body data **until email is sucessfully sent**. Then, these data are permanently removed.
 
-If you want to retain these data permanently, you must use *retaindata=true* when [creating/editing your app](api-apps.md).
+That is, apps, by default, remove all sensitive informatio due to privacity reasons.
 
-If you want to use *attachmenttype=URL* when you [send an email](api-emails.md), you must use *retaindata=true* in your app.
+If you want to retain these data permanently, you must check *Retain sensitive info* when [creating/editing your app](api-apps.md).
 
-Whether you use *retaindata=true* or not you can call [/private/emails/remove](api-emails.md) endpoint to remove all data and logs of finished emails.
+Keep in mind that if you use *attachmenttype=URL* when you [send an email](api-emails.md) attachments data will be kept for a while [depending on your plan](api-limitations.md). 
 
-Due to traceability reasons, we do not remove any email address.
+Therefore, if you want to guarantee complete privacy the you shoud use *attachmenttype=FILE*.
+
+In any case, if you want to **immediately delete all information related to the sending** you must use API endpoint [/private/emails/remove](api-emails.md).
+
+Due to traceability reasons, we do not remove any email address (until system delete them [depending on your plan](api-limitations.md)).
 
 Please, read our [private policy](legal-privatepolicy.md) for more info about data privacy. 
 
