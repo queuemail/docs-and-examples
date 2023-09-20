@@ -60,8 +60,7 @@ Specific errors:
 11. *replyto* domain has not MX records
 12. All TO recipients are invalid
 13. All TO recipients are blacklisted
-14. For use URL type in attachments your app must be configured with retaindata=true
-15. Emails limit per month exceeded.
+14. Emails limit per month exceeded.
 
 
 
