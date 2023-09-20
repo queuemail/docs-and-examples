@@ -30,6 +30,10 @@ Free tier does not support Queuemail professional SMTP servers. So you must to c
 
 ### CHANGELOG:
 
+* **2023-09-20**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> improvements: Now yu can create and send newsletters (contacts, templates and mailing management).
+
+* **2023-09-19**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> improvements: Now you can managa queue, logs, tracking and blacklists.
+
 * **2023-09-01**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> acccess. Apps and SMTP servers must be created via control panel. API calls for manage apps and SMTP servers are removed.
 
 * **2023-07-21**: Added example: [Hardy Client: A robust Java client to use QUEUEMAIL.DEV API](examples-hardyservice.md).
