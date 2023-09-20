@@ -13,6 +13,8 @@ En cualquier caso, si quieres **borrar inmediatamente toda la información relat
 
 Debido a razones de trazabilidad, nunca eliminamos las direcciones de correo (hasta que el sistema elimine los datos [dependiendo de tu plan](api-limitations.md)).
 
+Si buscas una privacidad total te sugerimos que uses tu propia base de datos [contratando con nosotros un plan profesional](api-limitations.md).
+
 Por favor, lee nuestra [política de privacidad](legal-privatepolicy.md) para más información acerca de la privacidad de datos. 
 
 

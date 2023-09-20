@@ -12,6 +12,8 @@ In any case, if you want to **immediately delete all information related to the 
 
 Due to traceability reasons, we do not remove any email address (until system delete them [depending on your plan](api-limitations.md)).
 
+If you are looking for total privacy, we suggest that you use your own database by [contracting a professional plan with us](api-limitations.md).
+
 Please, read our [private policy](legal-privatepolicy.md) for more info about data privacy. 
 
 
