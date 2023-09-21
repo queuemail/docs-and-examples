@@ -32,4 +32,4 @@
 * [Contact us](legal-contact.md)
 
 <hr/>
-<a class="logo" href="#" ><img src="https://queuemail.dev/qmadmin/assets/images/logo.png" style="height: 2vh;"></a> is made with ❤️ from Planet Earth.
+<a href="#" >QUEUEMAIL.DEV</a> is made with ❤️ from Planet Earth.
