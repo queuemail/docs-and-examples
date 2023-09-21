@@ -31,5 +31,5 @@
 * [Private policy](legal-privatepolicy.md)
 * [Contact us](legal-contact.md)
 
-<hr/>
-<a href="#" >QUEUEMAIL.DEV</a> is made with ❤️ from Planet Earth.
+### &nbsp; Credits:
+* QUEUEMAIL.DEV is made with ❤️ from Planet Earth.
