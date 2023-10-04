@@ -2,7 +2,7 @@ Apps, by default, just retain subject and body data **until email is sucessfully
 
 That is, apps, by default, remove all sensitive information due to privacity reasons.
 
-If you want to retain these data permanently, you must check *Retain sensitive info* when [creating/editing your app](api-apps.md).
+If you want to retain these data permanently you must check *Retain sensitive info* when [creating/editing your app](api-apps.md).
 
 Keep in mind that if you use *attachmenttype=URL* when you [send an email](api-emails.md) attachments data will be kept for a while [depending on your plan](api-limitations.md). 
 
