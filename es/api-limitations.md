@@ -6,6 +6,7 @@
 - Los logs son eliminados a los 30 días.
 - Todos los datos son almacenados en nuestra infraestructura. No tienes acceso a configurar tu propia infraestructura (base de datos).
 - Procesamiento de cola normal (no tienes prioridad para enviar los emails más rápido).
+- Las cuentas registradas que en sus primeros 5 días no sean usadas serán eliminadas automáticamente y todos sus datos asociados serán borrados. También las cuentas que no hayan enviado ningún email y no se conecten durante 5 días serán eliminadas automáticamente y todos sus datos asociados serán borrados. No se eliminará nunca ninguna cuenta que haya enviado en algún momento algún email con éxito.
 
 
 #### Para **uso profesional** ofrecemos una solución personalizada eliminando esos límites:

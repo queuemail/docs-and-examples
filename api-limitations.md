@@ -6,7 +6,7 @@
 - Logs are removed by 30 days.
 - Data are hosted in our data infraestructure. No access to configure your own infraestructure (database).
 - Normal queue processing (no priority for send emails faster).
-
+- Registered accounts that are not used within the first 5 days will be automatically deleted and all associated data will be deleted. Also accounts that have not sent any email and do not connect for 5 days will be automatically deleted and all their associated data will be deleted. Any account that has successfully sent an email at any time will never be deleted.
 
 #### For **professional use** we can offer a custom solution removing these limits:
 

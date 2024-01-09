@@ -30,6 +30,8 @@ Free tier does not support Queuemail professional SMTP servers. So you must to c
 
 ### CHANGELOG:
 
+* **2024-01-09**: Automatic removal for free-tier unused accounts. See [API limitations](api-limitations.md).
+
 * **2023-09-20**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> improvements: Now you can create and send newsletters (contacts, templates and mailing management).
 
 * **2023-09-19**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> improvements: Now you can manage queue, logs, tracking and blacklists.
