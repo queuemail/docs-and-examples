@@ -31,7 +31,7 @@ La capa gratuita no incluye el uso de los servidores SMTP profesionales de Queue
 
 ### REGISTRO DE CAMBIOS:
 
-* **2024-01-09**: Elimintación automática para cuentas no usadas de la capa gratuita. Ver [API limitations](api-limitations.md).
+* **2024-01-09**: Eliminación automática para cuentas no usadas de la capa gratuita. Ver [limitaciones de la API](api-limitations.md).
 
 * **2023-09-20**: Mejoras en el <a href="https://queuemail.dev/qmadmin/login">panel de control</a>: Ahora se pueden crear y enviar newsletters (gestión de contactos, plantillas y mailings).
 
