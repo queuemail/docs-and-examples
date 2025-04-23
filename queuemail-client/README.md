@@ -22,4 +22,4 @@ The main components include:
 
 This project is ideal for developers who want to quickly integrate QUEUEMAIL.DEV into their Java applications.
 
-📌 For a more robust and fault-tolerant solution, check out the [Hardy Client example](examples-hardyservice.md).
+📌 For a more robust and fault-tolerant solution, check out the [Hardy Client example](https://docs.queuemail.dev/#/examples-hardyservice).
