@@ -2,52 +2,47 @@
 <html lang="en">
 <head>
 
-  <meta http-equiv='cache-control' content='no-cache'> 
-  <meta http-equiv='expires' content='0'> 
-  <meta http-equiv='pragma' content='no-cache'>
-  
- <script src="/commons.js"></script>
- <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+  <meta http-equiv="cache-control" content="no-cache"> 
+  <meta http-equiv="expires" content="0"> 
+  <meta http-equiv="pragma" content="no-cache">
 
+  <script src="/commons.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
 
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="description" content="A reliable and developer-friendly email delivery API. Supports asynchronous sending with a free tier.">
 
-  <!--Meta tags-->
-  <title>QUEUEMAIL.DEV - Documentation &amp; examples</title>
-  <meta name="description" content="Reliable email delivery API. Free tier. Send asynchronously.">
+  <!-- Meta tags -->
+  <title>QUEUEMAIL.DEV – Documentation & Examples</title>
+  <meta name="description" content="A reliable and developer-friendly email delivery API. Supports asynchronous sending with a free tier.">
 
   <!-- Google / Search Engine Tags -->
   <meta itemprop="name" content="QUEUEMAIL.DEV">
-  <meta itemprop="description" content="Reliable email delivery API. Free tier. Send asynchronously.">
+  <meta itemprop="description" content="A reliable and developer-friendly email delivery API. Supports asynchronous sending with a free tier.">
   <meta itemprop="image" content="https://raw.githubusercontent.com/queuemail/docs-and-examples/master/logo-q.png">
-  
+
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://docs.queuemail.dev">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="QUEUEMAIL - Reliable email delivery API">
-  <meta property="og:description" content="Reliable email delivery API. Free tier. Send asynchronously.">
+  <meta property="og:title" content="QUEUEMAIL – Reliable Email Delivery API">
+  <meta property="og:description" content="Fast, scalable, and reliable API for sending emails asynchronously. Includes a free usage tier.">
   <meta property="og:image" content="https://raw.githubusercontent.com/queuemail/docs-and-examples/master/logo-q.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="QUEUEMAIL - Reliable email delivery API">
-  <meta name="twitter:description" content="Reliable email delivery API. Free tier. Send asynchronously.">
+  <meta name="twitter:title" content="QUEUEMAIL – Reliable Email Delivery API">
+  <meta name="twitter:description" content="Fast, scalable, and reliable API for sending emails asynchronously. Includes a free usage tier.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/queuemail/docs-and-examples/master/logo-q.png">
 
   <!-- Stylesheets -->
-  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css" /-->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css"> -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css">
 
-
-
-    
   <!-- Favicon -->
   <link rel="icon" href="logo-q.png" type="image/png">
-
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NGZKG5YF5"></script>
@@ -55,115 +50,92 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-2NGZKG5YF5');
   </script>
 
+  <style>
+    :root {
+      --docsifytabs-border-color: #ededed;
+      --docsifytabs-tab-highlight-color: purple;
+    }
 
-<style>
-  :root {
-    --docsifytabs-border-color: #ededed;
-    --docsifytabs-tab-highlight-color: purple;
-  }
-
-  .docsify-tabs__tab { cursor: pointer; }
-
-  .markdown-section a { color: #7e4bd1 !important;}
-  .sidebar ul li.active > a  { color: #7e4bd1 !important;}
-</style>
+    .docsify-tabs__tab { cursor: pointer; }
+    .markdown-section a { color: #7e4bd1 !important; }
+    .sidebar ul li.active > a { color: #7e4bd1 !important; }
+  </style>
 
 </head>
 <body>
 
-  <noscript>This page requires JavaScript to work, please enable it or visit our GitHub repository <a href="https://github.com/queuemail/docs-and-examples">here</a>.</noscript>
-
+  <noscript>This site requires JavaScript to function properly. Please enable JavaScript or visit our GitHub repository <a href="https://github.com/queuemail/docs-and-examples">here</a>.</noscript>
 
   <nav>
-    <!--a href="/">English</a>
-    <a href="/es/index.html#/">Spanish</a-->
-    <a target="_blank" href="https://queuemail.dev/qmadmin/login">Control panel</a>
+    <!-- Language options
+    <a href="/">English</a>
+    <a href="/es/index.html#/">Spanish</a> -->
+    <a target="_blank" href="https://queuemail.dev/qmadmin/login">Control Panel</a>
   </nav>
 
   <div id="app">Loading...</div>
-  
+
   <script>
     window.$docsify = {
-    
       executeScript: true,
 
-
       search: {
-      maxAge: 86400000, // Expiration time, the default one day
-      paths: 'auto', // or 'auto'
+        maxAge: 86400000, // Cache expiry: 1 day
+        paths: 'auto',
 
-      // Localization
-      placeholder: {
-        '/es/': 'Escriba para buscar',
-        '/': 'Type to search'
+        // Search placeholders
+        placeholder: {
+          '/es/': 'Escriba para buscar',
+          '/': 'Type to search'
+        },
+
+        // Search results fallback
+        noData: {
+          '/es/': 'No results found',
+          '/': 'No results found'
+        }
       },
-
-
-
-      // Localization
-      noData: {
-        '/es/': 'Sin resultados',
-        '/': 'No Results'
-      },
-
-
-      // Headline depth, 1 - 6
-      depth: 6,
-
-      hideOtherSidebarContent: false, // whether or not to hide other sidebar content
-    },
-
-    
 
       name: 'Queuemail.dev',
       repo: 'queuemail/docs-and-examples',
-      
+
       loadSidebar: true,
       autoHeader: true,
 
       alias: {
-      '/.*/_sidebar.md': '/_sidebar.md',
-      "/es" : "/es/index.html",
-      "/es/(.*)" : "/es/$1"
-    },
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/es': '/es/index.html',
+        '/es/(.*)': '/es/$1'
+      },
 
       tabs: {
-    persist    : true,      // default
-    sync       : true,      // default
-    theme      : 'classic', // default
-    tabComments: true,      // default
-    tabHeadings: true       // default
-
-  }
-     //, logo: 'logo-q.png',
-    }
-    
-
-
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      }
+    };
   </script>
-  <!-- Docsify v4 -->
-  <!--script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script-->
+
+  <!-- Docsify Core -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
+  <!-- <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script> -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>    
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
 
-<!-- docsify-tabs (latest v1.x.x) -->
-<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- Docsify Tabs Plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 
-<style>
-  blockquote:first-of-type {
-    background-color: rgba(235, 248, 242, 0.363);
-  }
-</style>
+  <style>
+    blockquote:first-of-type {
+      background-color: rgba(235, 248, 242, 0.363);
+    }
+  </style>
 
 </body>
 </html>
-
-
-
-
