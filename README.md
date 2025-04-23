@@ -1,43 +1,46 @@
-# QUEUEMAIL.DEV - Reliable email delivery API. Free tier. Send asynchronously.
+# QUEUEMAIL.DEV – Reliable Email Delivery API (Free Tier, Asynchronous Support)
 
-Main docs page here --> [https://docs.queuemail.dev/](https://docs.queuemail.dev/)
+📄 Main documentation: [https://docs.queuemail.dev/](https://docs.queuemail.dev/)
 
-QUEUEMAIL.DEV allows you to send emails via API using one or more SMTP servers in order to ensure deliverability and avoid SMTP stress.
+**QUEUEMAIL.DEV** is a flexible email delivery platform that lets you send emails through one or multiple SMTP servers to maximize deliverability and prevent server overload.
 
-Some sample features:
+## 🔧 Key Features
 
-- You can program sending emails in a synchronous or asynchronous way: With [logs endpoint](api-logs.md) you can check send status for every email sent. 
+- **Synchronous and Asynchronous Sending**  
+  Choose how emails are sent. Use the [Logs Endpoint](api-logs.md) to check the delivery status of every email.
 
-- Also, with [webhooks](features-webhooks.md), you can run processes when an event (like email sucessfully sent) occurs for a complete integration.
+- **Webhook Support**  
+  Set up [Webhooks](features-webhooks.md) to trigger actions when events occur—such as successful delivery—enabling full system integration.
 
-- With [sending email endpoint](api-emails.md) you can discard sending errors before you start a SMTP session.
+- **Pre-send Error Handling**  
+  The [Email Sending Endpoint](api-emails.md) allows you to catch errors before initiating an SMTP session.
 
-- Track opened emails and clicked email links with [tracking endpoint](api-tracking.md).
+- **Email Tracking**  
+  Monitor email opens and link clicks using the [Tracking Endpoint](api-tracking.md).
 
-- ...and much more at [docs](https://docs.queuemail.dev).
+- ...and much more in the [official documentation](https://docs.queuemail.dev)
 
-Free tier does not support Queuemail professional SMTP servers. So you must to configure [free SMTP servers](other-freesmtps.md) or your custom SMTP server.
+> ⚠️ **Note:** The free tier does not include access to Queuemail’s professional SMTP servers. You must configure your own or use one of the [recommended free SMTP servers](other-freesmtps.md).
 
+---
 
-#### CLIENTS:
+## 💻 Clients
 
-* [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client).
+- [**queuemail-client**: Basic Java client for the QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
 
-#### EXAMPLES:
+## 🧪 Examples
 
-* [Hardy Client: A robust Java client to use QUEUEMAIL.DEV API](examples-hardyservice.md).
+- [**Hardy Client**: A robust Java client for interacting with the QUEUEMAIL.DEV API](examples-hardyservice.md)
 
+---
 
-### CHANGELOG:
+## 📝 Changelog
 
-* **2024-01-09**: Automatic removal for free-tier unused accounts. See [API limitations](api-limitations.md).
+- **2025-04-23** - Documentation improvement
+- **2024-01-09** – Automatic deletion of unused free-tier accounts. See [API Limitations](api-limitations.md).  
+- **2023-09-20** – Control Panel updates: You can now manage newsletters (contacts, templates, and mailings). [Access the panel](https://queuemail.dev/qmadmin/login)  
+- **2023-09-19** – Control Panel enhancements: Queue, logs, tracking, and blacklist management added.  
+- **2023-09-01** – Control Panel required for app and SMTP server creation. Related API calls have been deprecated.  
+- **2023-07-21** – New example added: [Hardy Client](examples-hardyservice.md).  
+- **2023-07-18** – `senddate` parameter added to the [Email Sending Endpoint](api-emails.md) to allow scheduling.
 
-* **2023-09-20**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> improvements: Now you can create and send newsletters (contacts, templates and mailing management).
-
-* **2023-09-19**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> improvements: Now you can manage queue, logs, tracking and blacklists.
-
-* **2023-09-01**: <a href="https://queuemail.dev/qmadmin/login">Control panel</a> acccess. Apps and SMTP servers must be created via control panel. API calls for manage apps and SMTP servers are removed.
-
-* **2023-07-21**: Added example: [Hardy Client: A robust Java client to use QUEUEMAIL.DEV API](examples-hardyservice.md).
-
-* **2023-07-18**: Added *senddate* parameter to [sending emails endpoint](api-emails.md) in order to schedule emails to send.
