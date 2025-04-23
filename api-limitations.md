@@ -1,21 +1,29 @@
+## ⚠️ Free-Tier API Limitations
 
-#### You must consider our **API free-tier** has the following limitations:
+Please note that the **free-tier** of the QUEUEMAIL API has the following limitations:
 
-- You can send up to 10,000 emails per month. This is quite a bit for most of small to medium projects.
-- You can only use your SMTP servers or 3rd party SMTP servers (Google, Outlook, etc.). No access to Queuemail.dev professional SMTP severs.
-- Logs are removed by 30 days.
-- Data are hosted in our data infraestructure. No access to configure your own infraestructure (database).
-- Normal queue processing (no priority for send emails faster).
-- Registered accounts that are not used within the first 5 days will be automatically deleted and all associated data will be deleted. Also accounts that have not sent any email and do not connect for 5 days will be automatically deleted and all their associated data will be deleted. Any account that has successfully sent an email at any time will never be deleted.
+- You can send up to **10,000 emails per month**, which is sufficient for most small to medium-sized projects.
+- You can only use **your own SMTP servers** or **third-party providers** (e.g., Gmail, Outlook).  
+  ❌ Access to Queuemail.dev professional SMTP servers is not included.
+- **Logs are automatically deleted after 30 days.**
+- All data is hosted in Queuemail's infrastructure.  
+  ❌ You cannot configure your own infrastructure or database.
+- **Standard queue processing** only (no priority or accelerated delivery).
+- Accounts with no activity within the first 5 days of registration will be **automatically deleted**, including all associated data.  
+  Likewise, any account that has not sent an email and has not connected within 5 days will be removed.  
+  ✅ Any account that has successfully sent at least one email will **not** be deleted.
 
-#### For **professional use** we can offer a custom solution removing these limits:
+---
 
-- More emails per month.
-- Access to Queuemail.dev professional SMTP servers (including option for sending with your own domain).
-- No limit for logs retention.
-- Host all your data in your own database (only you can access these data).
-- Acelerated queue processing (emails are sent faster).
+## 💼 Need a Custom Professional Solution?
 
-If your are intested in a professional custom solution, please, contact <a href="info@queuemail.dev">info@queuemail.dev</a>.
+For **professional or high-volume use**, we offer custom plans that remove these limitations:
 
+- Higher monthly email quotas.
+- Access to **Queuemail.dev professional SMTP servers**, including custom domain sending.
+- **Unlimited log retention**.
+- Host all your data in **your own private database** — only you will have access.
+- **Accelerated queue processing** for faster email delivery.
 
+📩 If you're interested in a professional solution, feel free to contact us at:  
+[info@queuemail.dev](mailto:info@queuemail.dev)

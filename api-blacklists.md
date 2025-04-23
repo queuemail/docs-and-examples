@@ -1,229 +1,176 @@
+# 📧 Blacklist Management API
 
+Use these endpoints to manage blacklist and auto-blacklist entries.
 
-Using these endpoints you manage blacklists.
+---
 
-<!-- tabs:start -->
+## ➕ Add an Email to the Blacklist
 
+**Endpoint:**  
+`POST /private/blacklist/add`
 
-<!-- tab:Add an email to blacklist -->
+### 🔹 Parameters
 
+| Parameter | Description          | Required | Default |
+|----------|----------------------|----------|---------|
+| `idapp`  | App ID               | ✅ Yes   | –       |
+| `email`  | Email to blacklist   | ✅ Yes   | –       |
 
-**REQUEST:** 
+### 🧾 Status Codes
 
-*POST* /private/blacklist/add
+| Code | Description                                      |
+|------|--------------------------------------------------|
+| 200  | Success                                          |
+| 400  | Missing or invalid parameter                    |
+| 401  | Unauthorized user                               |
+| 403  | Invalid credentials                             |
+| 406  | Specific error (see below)                      |
+| 500  | Internal server error                           |
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|email | Email to blacklist | Yes |  |
-
-**STATUS CODES:**
-
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-Specific errors:
-
+**Specific errors:**
 1. App not found
 
-
-
-You will get a JSON response like this:
+### ✅ Sample Response
 
 ```
 {
-    "_id": "6474908d7ff70117d6a938dc",
-    "idapp": "647095de67e43f0f33a3a089",
-    "idsending": null,
-    "email": "kk@kk.com",
-    "ip": "xx.xx.xx.xx",
-    "created": "2023-05-29T11:46:21.685157634"
+  "_id": "6474908d7ff70117d6a938dc",
+  "idapp": "647095de67e43f0f33a3a089",
+  "idsending": null,
+  "email": "kk@kk.com",
+  "ip": "xx.xx.xx.xx",
+  "created": "2023-05-29T11:46:21.685157634"
 }
 ```
 
-- **idsending** email sending id if blacklist has been created due to an email sending.
-- **ip** ip origin of blacklist add.
-- **created** when the email has been added to blacklist.
+### 📘 Notes
 
-<!-- tab:Blacklist info -->
+- `idsending`: ID of the email sending operation if the blacklist entry was created as a result of a send.
+- `ip`: IP address from which the blacklist was created.
+- `created`: Timestamp when the email was added to the blacklist.
 
-Get blacklist & auto-blacklist info by app.
+---
 
-**REQUEST:** 
+## 📄 Get Blacklist and Auto-Blacklist Info by App
 
-*GET* /private/blacklist/findByApp
+**Endpoint:**  
+`GET /private/blacklist/findByApp`
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|page | Page number | Yes |  |
-|size | Page size | Yes |  |
+### 🔹 Parameters
 
-**STATUS CODES:**
+| Parameter | Description       | Required | Default |
+|----------|-------------------|----------|---------|
+| `idapp`  | App ID            | ✅ Yes   | –       |
+| `page`   | Page number       | ✅ Yes   | –       |
+| `size`   | Page size         | ✅ Yes   | –       |
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+### 🧾 Status Codes
 
+| Code | Description                                      |
+|------|--------------------------------------------------|
+| 200  | Success                                          |
+| 400  | Missing or invalid parameter                    |
+| 401  | Unauthorized user                               |
+| 403  | Invalid credentials                             |
+| 500  | Internal server error                           |
 
-**RESPONSE:**
-
-
-You will get a JSON response like this:
+### ✅ Sample Response
 
 ```
 {
-    "blacklisted": {
-        "content": [
-            {
-                "_id": "6474908d7ff70117d6a938dc",
-                "idapp": "647095de67e43f0f33a3a089",
-                "idsending": null,
-                "email": "kk@kk.com",
-                "ip": "xx.xx.xx.xx",
-                "created": "2023-05-29T11:46:21.685"
-            }
-        ],
-        "pageable": {
-            "sort": {
-                "empty": true,
-                "sorted": false,
-                "unsorted": true
-            },
-            "offset": 0,
-            "pageNumber": 0,
-            "pageSize": 10,
-            "paged": true,
-            "unpaged": false
-        },
-        "last": true,
-        "totalPages": 1,
-        "totalElements": 1,
-        "size": 10,
-        "number": 0,
-        "sort": {
-            "empty": true,
-            "sorted": false,
-            "unsorted": true
-        },
-        "first": true,
-        "numberOfElements": 1,
-        "empty": false
+  "blacklisted": {
+    "content": [
+      {
+        "_id": "6474908d7ff70117d6a938dc",
+        "idapp": "647095de67e43f0f33a3a089",
+        "idsending": null,
+        "email": "kk@kk.com",
+        "ip": "xx.xx.xx.xx",
+        "created": "2023-05-29T11:46:21.685"
+      }
+    ],
+    "pageable": {
+      "pageNumber": 0,
+      "pageSize": 10
     },
-    "autoblacklisted": {
-        "content": [],
-        "pageable": {
-            "sort": {
-                "empty": true,
-                "sorted": false,
-                "unsorted": true
-            },
-            "offset": 0,
-            "pageNumber": 0,
-            "pageSize": 10,
-            "paged": true,
-            "unpaged": false
-        },
-        "last": true,
-        "totalPages": 0,
-        "totalElements": 0,
-        "size": 10,
-        "number": 0,
-        "sort": {
-            "empty": true,
-            "sorted": false,
-            "unsorted": true
-        },
-        "first": true,
-        "numberOfElements": 0,
-        "empty": true
-    }
+    "totalPages": 1,
+    "totalElements": 1,
+    "first": true,
+    "last": true,
+    "empty": false
+  },
+  "autoblacklisted": {
+    "content": [],
+    "pageable": {
+      "pageNumber": 0,
+      "pageSize": 10
+    },
+    "totalPages": 0,
+    "totalElements": 0,
+    "first": true,
+    "last": true,
+    "empty": true
+  }
 }
 ```
 
+---
 
+## 🔍 Check if an Email is Blacklisted
 
-<!-- tab:Check if an email is blacklisted -->
+**Endpoint:**  
+`GET /private/blacklist/isBlackListed`
 
+### 🔹 Parameters
 
+| Parameter | Description            | Required | Default |
+|----------|------------------------|----------|---------|
+| `idapp`  | App ID                 | ✅ Yes   | –       |
+| `email`  | Email address to check | ✅ Yes   | –       |
 
+### 🧾 Status Codes
 
-**REQUEST:** 
+| Code | Description                                      |
+|------|--------------------------------------------------|
+| 200  | Success                                          |
+| 400  | Missing or invalid parameter                    |
+| 401  | Unauthorized user                               |
+| 403  | Invalid credentials                             |
+| 500  | Internal server error                           |
 
-*GET* /private/blacklist/isBlackListed
+### ✅ Response
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|email | Email address to check | Yes |  |
+Returns a plain text response: `true` or `false`
 
-**STATUS CODES:**
+---
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+## ❌ Remove an Email from the Blacklist
 
+**Endpoint:**  
+`POST /private/blacklist/remove`
 
+### 🔹 Parameters
 
+| Parameter | Description               | Required | Default |
+|----------|---------------------------|----------|---------|
+| `idapp`  | App ID                    | ✅ Yes   | –       |
+| `email`  | Email address to remove   | ✅ Yes   | –       |
 
+### 🧾 Status Codes
 
-**RESPONSE:**
+| Code | Description                                      |
+|------|--------------------------------------------------|
+| 200  | Success                                          |
+| 400  | Missing or invalid parameter                    |
+| 401  | Unauthorized user                               |
+| 403  | Invalid credentials                             |
+| 406  | Specific error (see below)                      |
+| 500  | Internal server error                           |
 
-*true* or *false*  (text format, not JSON)
+**Specific errors:**
+1. Email not found  
+2. Email was added by the recipient and cannot be removed
 
+### ✅ Response
 
-
-
-
-<!-- tab:Remove an email from blacklist -->
-
-
-
-**REQUEST:** 
-
-
-*POST* /private/blacklist/remove
-
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|email | Email address to remove | Yes |  |
-
-**STATUS CODES:**
-
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-Specific errors:
-
-1. Mail not found
-2. Mail added by the recipient. Cannot delete it
-
-
-
-**RESPONSE:**
-
-*empty*
-
-<!-- tabs:end -->
-
+Returns an empty response on success.

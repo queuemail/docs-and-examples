@@ -1,21 +1,17 @@
-Apps always log email activity and errors. 
+## Email Logs
 
-Log entries can be related with:
+Apps automatically log all email activity and related errors.
 
-- Emails sucessfully sent.
-- SMTP errors.
-- Erros related with domain/MX DNS zones.
-- Apps/users deactivated.
-- Blacklist/auto-blacklist email addresses.
+Log entries may include events such as:
 
-... and more.
+- Emails successfully sent  
+- SMTP errors  
+- Domain or MX DNS zone issues  
+- Deactivated apps or users  
+- Blacklisted or auto-blacklisted email addresses  
+- ...and more
 
-These log entries are deleted by 30 days, but you can use [get email logs](api-logs.md) call for saving pemanent them in your own database.
+⏳ **Retention Policy:**  
+Logs are automatically deleted after **30 days**.
 
-
-
-
-
-
-
-
+If you need to retain logs permanently, you can use the [Get Email Logs](api-logs.md) API endpoint to store them in your own database.

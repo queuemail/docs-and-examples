@@ -1,21 +1,40 @@
-When [creating/editing your app](api-apps.md) optionally you can set a origin server or IP in order to limit servers/IPs from which [call to send emails](api-emails.md) can be made.
+## 🌐 Restrict Email API Calls by Origin Server or IP
 
-If you don't set this parameter your app can be used from any IP without checking request origin.
+When [creating or editing your app](api-apps.md), you can optionally restrict the origin of API requests by specifying a **server name** or **IP address**.
 
-For specify origin server you must use *originserver* parameter with values like "*myserver.com*" or "*192.168.0.1*". 
+This feature is useful if you want to ensure that only trusted servers can [send emails](api-emails.md) using your app.
 
-Also, you can specify multiple servers/IPs with comma separated values: "*myserver.com,192.168.0.1*"
+---
 
-If you are using this feature, when sending emails, you will receive error if the origin email does not match with *originserver* specified in your app. At the error description you will get received server/IP as origin of your request. Thus, you can fix *originserver* whith the correct value.
+### 🔧 How to Set Allowed Origins
 
+To enable origin restrictions, set the `originserver` parameter when configuring your app. You can use:
 
+- A single domain or IP address:
+  ```
+  myserver.com
+  ```
+  or
+  ```
+  192.168.0.1
+  ```
 
+- Multiple domains or IPs (comma-separated):
+  ```
+  myserver.com,192.168.0.1
+  ```
 
+If `originserver` is **not set**, the app can be accessed from **any origin** without restriction.
 
+---
 
+### ❌ What Happens If the Origin Doesn’t Match?
 
+If you enable this restriction and a request to send an email comes from a server/IP that **does not match** the values in `originserver`, the request will be **rejected with an error**.
 
+The error message will include the **actual origin** (server name or IP) used in the request.  
+This can help you identify and correct the allowed origin list by updating the `originserver` value accordingly.
 
+---
 
-
-
+✅ Use this feature to enhance your app’s security by allowing email operations **only from approved sources**.

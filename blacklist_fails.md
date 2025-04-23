@@ -1,1 +1,1 @@
-### Address was not blacklisted.
+### ❌ The address could not be added to the blacklist.

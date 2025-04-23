@@ -1,65 +1,70 @@
+## Retrieve Email Logs
 
-
-Using these endpoints you can get email logs.
+Use the following endpoints to retrieve logs associated with a specific email.
 
 <!-- tabs:start -->
 
+### 📩 Get Logs by Email
 
-<!-- tab:Get logs by email -->
+**Endpoint:**  
+`GET /private/logs/findByEMail`
 
+#### 🔹 Parameters
 
-**REQUEST:** 
+| Parameter | Description          | Required | Default |
+|-----------|----------------------|----------|---------|
+| `idemail` | The ID of the email. | ✅ Yes   | –       |
 
-*GET* /private/logs/findByEMail
+#### 🔸 Status Codes
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
+| Code | Description                                         |
+|------|-----------------------------------------------------|
+| 200  | Success                                             |
+| 400  | Missing or invalid parameter                        |
+| 401  | Unauthorized access                                 |
+| 403  | Invalid credentials                                 |
+| 500  | Internal server error                               |
 
-**STATUS CODES:**
+#### 🔄 Sample Response (JSON)
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
-
-
-
-
-You will get a JSON response like this:
-
-```
+```json
 [
-    {
-        "_id": "63eb5f944986cc0ed366fc5b",
-        "idsending": "63eb5f324986cc0ed366fc5a",
-        "idsmtp": "63eb5c67db7fa34c44d64783",
-        "idapp": null,
-        "to": "xxxxx@gmail.com",
-        "resultcode": "OK",
-        "created": "2023-02-14T10:16:52.128"
-    },
-    {
-        "_id": "63eb5f994986cc0ed366fc5c",
-        "idsending": "63eb5f324986cc0ed366fc5a",
-        "idsmtp": "63eb5c67db7fa34c44d64783",
-        "idapp": null,
-        "to": "xxxxx@outlook.com",
-        "resultcode": "OK",
-        "created": "2023-02-14T10:16:57.98"
-    }
+  {
+    "_id": "63eb5f944986cc0ed366fc5b",
+    "idsending": "63eb5f324986cc0ed366fc5a",
+    "idsmtp": "63eb5c67db7fa34c44d64783",
+    "idapp": null,
+    "to": "xxxxx@gmail.com",
+    "resultcode": "OK",
+    "created": "2023-02-14T10:16:52.128"
+  },
+  {
+    "_id": "63eb5f994986cc0ed366fc5c",
+    "idsending": "63eb5f324986cc0ed366fc5a",
+    "idsmtp": "63eb5c67db7fa34c44d64783",
+    "idapp": null,
+    "to": "xxxxx@outlook.com",
+    "resultcode": "OK",
+    "created": "2023-02-14T10:16:57.980"
+  }
 ]
 ```
+### 📘 Response Details
 
-- Response is composed by an array with all operations associated with the email sent (**idsending**)
-- **idsmtp** is the id of the SMTP used for sending.
-- **resultcode** can be "OK" for sucess sending. "BLACKLISTED" if recipient has been included in blacklsit. "AUTOBLACKLISTED" if recipient has been included in auto-blacklist. Also can be a specific error code (ATTACHMENT_PROBLEM, SMTP_CONNECT_FAILS, SMTP_CONNECT_TIMEOUT, etc.)
-- **created** is the operation date/time.
-- **idapp** is the id of the App used but only has value in some operations.
-- **to** is the recipient related with the operation.
+- The response is an array of all operations related to the sent email (`idsending`).
+- **`idsmtp`**: The ID of the SMTP server used to send the email.
+- **`resultcode`**: Indicates the outcome of the operation:
+  - `"OK"` – Email was sent successfully.
+  - `"BLACKLISTED"` – The recipient is on the app’s blacklist.
+  - `"AUTOBLACKLISTED"` – The recipient has been automatically blacklisted due to repeated issues.
+  - Other possible error codes include:  
+    - `ATTACHMENT_PROBLEM`  
+    - `SMTP_CONNECT_FAILS`  
+    - `SMTP_CONNECT_TIMEOUT`  
+    - etc.
+- **`created`**: The date and time when the operation occurred.
+- **`idapp`**: The ID of the app used to send the email (may be `null` for some operations).
+- **`to`**: The recipient’s email address associated with the operation.
 
 
 <!-- tabs:end -->

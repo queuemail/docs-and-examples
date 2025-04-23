@@ -1,251 +1,201 @@
+# 📤 Email Sending API
 
+These endpoints allow you to queue emails for sending, retrieve email details, cancel queued emails, and remove completed ones.
 
-Using these endpoints you can send (queue up) emails, get emails send information, cancel (dequeue) emails and remove a finished (sent) emails.
+---
 
-<!-- tabs:start -->
+## ✉️ Send (Queue) an Email
 
+**Endpoint:**  
+`POST /private/emails/send`
 
-<!-- tab:Send (queue up) an email -->
+### 🔹 Parameters
 
+| Parameter              | Description                                                                 | Required | Default                    |
+|------------------------|-----------------------------------------------------------------------------|----------|----------------------------|
+| `idapp`                | App ID                                                                      | ✅ Yes   | –                          |
+| `from`                 | Sender email address                                                        | No       | App default                |
+| `fromname`             | Sender name                                                                 | No       | App default                |
+| `tos`                  | Recipient email addresses (comma-separated)                                 | ✅ Yes   | –                          |
+| `tonames`              | Recipient names (comma-separated)                                           | No       | Matches email addresses    |
+| `ccs`                  | CC addresses (comma-separated)                                              | No       | –                          |
+| `bccs`                 | BCC addresses (comma-separated)                                             | No       | –                          |
+| `replyto`              | Reply-to email address                                                      | No       | –                          |
+| `mimetype`             | `text/html` or `text/plain`                                                 | No       | `text/plain`               |
+| `subject`              | Email subject                                                               | ✅ Yes   | –                          |
+| `subjectencoding`      | Subject encoding (`UTF-8`, `ISO-8859-1`, etc.)                              | No       | `UTF-8`                    |
+| `body`                 | Email body                                                                  | ✅ Yes   | –                          |
+| `bodyencoding`         | Body encoding (`UTF-8`, `ISO-8859-1`, etc.)                                 | No       | `UTF-8`                    |
+| `attachments`          | File attachments                                                            | No       | –                          |
+| `urlattachments`       | URL attachments                                                             | No       | –                          |
+| `attachmenttype`       | `FILE` or `URL`                                                             | No       | `FILE`                     |
+| `includetracking`      | Include open/click tracking                                                 | No       | `false`                    |
+| `includeunregisterlink`| Include unsubscribe link (blacklist)                                        | No       | `false`                    |
+| `senddate`             | Scheduled send datetime (`yyyy-MM-dd'T'HH:mm:ssZ`)                          | No       | –                          |
 
-**REQUEST:** 
+### 🧾 Status Codes
 
-*POST* /private/emails/send
+| Code | Description                              |
+|------|------------------------------------------|
+| 200  | Success                                  |
+| 400  | Missing/invalid parameter                |
+| 401  | Unauthorized                             |
+| 403  | Invalid credentials                      |
+| 406  | Specific error                           |
+| 500  | Internal server error                    |
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-|from | Email from address | No | App default from email |
-|fromname | Name from address | No | App default from name  |
-|tos | Recipients email addresses (comma separeted)  | Yes  |  |
-|tonames | Recipients names (comma separated) | No | Recipients email addresses  |
-|ccs | Carbon copy recipients email addresses (comma separated) | No |  |
-|bccs | Blind carbon copy recipients email addresses (comma separated) | No |  |
-|replyto | Reply email address  | No |  |
-|mimetype | text/html or text/plain  | No | text/plain |
-|subject | Email subject  | Yes |  |
-|subjectencoding | Email subject encoding (UTF-8, ISO-8859-1, etc.) | No | UTF-8  |
-|body | Email body  | Yes |  |
-|bodyencoding | Email body encoding (UTF-8, ISO-8859-1, etc.)  | No | UTF-8  |
-|attachments | Email file attachments  | No |  |
-|urlattachments | Email url attachments  | No |  |
-|attachmenttype | Email attachments type (FILE / URL)  | No | FILE |
-|includetracking | Include tracking in email?  | No | false |
-|includeunregisterlink | Include unregister link (blacklist) in email?  | No | false |
-|senddate | Date/time to send the email in format yyyy-MM-dd'T'HH:mm:ssZ and must be a future date/time. Example: 2033-09-29T18:46:19-0700 where -0700 means GMT-7 timezone  | No |  |
+**Specific errors:**
 
-**STATUS CODES:**
+1. App not found  
+2. Remote server not allowed: `xxxx`  
+3. Remote domain not allowed: `xxxx`  
+4. No active SMTP for App  
+5. Sender domain does not exist  
+6. Cannot use `includetracking=true` with CC or BCC  
+7. Cannot use `includeUnregisterLink=true` with CC or BCC  
+8. `from` is not a valid email  
+9. `to` is not a valid email  
+10. `replyto` is not a valid email  
+11. `replyto` domain lacks MX records  
+12. All TO recipients are invalid  
+13. All TO recipients are blacklisted  
+14. Monthly email limit exceeded
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-Specific errors:
-
-1. App not found
-2. Remote server not allowed: xxxx
-3. Remote domain not allowed: xxxx
-3. No active SMTP for App
-4. Sender domain does not exist
-5. Cannot use includetracking=true if you provide CCS or BCCS. Please, use includetracking=false or remove CCS and BCCS email addressses
-6. Cannot use includeUnregisterLink=true if you provide CCS or BCCS. Please, use includeUnregisterLink=false or remove CCS and BCCS email addressses
-7. *from* is not a valid email address
-9. *to* is not a valid email address
-10. *replyto* is not a valid email address
-11. *replyto* domain has not MX records
-12. All TO recipients are invalid
-13. All TO recipients are blacklisted
-14. Emails limit per month exceeded.
-
-
-
-You will get a JSON response like this:
+### ✅ Sample Response
 
 ```
 {
-    "id": "64747cae67e43f0f33a3a08b",
-    "status": "Q",
-    "inittime": "2023-05-29T10:22:33.895254204",
-    "logsdeleledby": "2023-06-28T10:22:33.895254204",
-    "attachments": [
-        "https://cdn.queuemail.dev/static/sendings/b74f118e-eab2-4aa9-b72d-xec21fa2368b/c.xml"
-    ],
-    "blacklisted": [],
-    "autoblacklisted": [],
-    "notvalidrecipients": []
+  "id": "64747cae67e43f0f33a3a08b",
+  "status": "Q",
+  "inittime": "2023-05-29T10:22:33.895254204",
+  "logsdeleledby": "2023-06-28T10:22:33.895254204",
+  "attachments": [
+    "https://cdn.queuemail.dev/static/sendings/b74f118e-eab2-4aa9-b72d-xec21fa2368b/c.xml"
+  ],
+  "blacklisted": [],
+  "autoblacklisted": [],
+  "notvalidrecipients": []
 }
 ```
 
-- **status** field = 'Q' means email has been queued up correctly.
-- **inittime** is the estimated time for sending email.
-- **logsdeleledby** it the time when email logs will be deleted.
-- **attachments** array with all url attachments.
-- **blacklisted** array with all recipient emails addresses blacklisted.
-- **autoblacklisted** array with all recipient emails addresses auto-blacklisted.
-- **notvalidrecipients** array with all recipient not valid emails addresses.
+### 📘 Notes
 
+- `status = Q` – Email has been successfully queued.
+- `inittime` – Estimated time of sending.
+- `logsdeleledby` – Time when logs will be deleted.
+- `attachments` – List of attachment URLs.
+- `blacklisted` – List of blacklisted recipients.
+- `autoblacklisted` – List of auto-blacklisted recipients.
+- `notvalidrecipients` – List of invalid recipients.
 
-<!-- tab:Get email info -->
+---
 
+## 📋 Get Email Info
 
+**Endpoint:**  
+`GET /private/emails/info`
 
-**REQUEST:** 
+### 🔹 Parameters
 
-*GET* /private/emails/info
+| Parameter  | Description   | Required | Default |
+|------------|---------------|----------|---------|
+| `idemail`  | Email ID      | ✅ Yes   | –       |
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
+### 🧾 Status Codes
 
-**STATUS CODES:**
+Same as above.  
+**Specific error:** 1. Email not found
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-Specific errors:
-
-1. Mail not found
-
-**RESPONSE:**
-
-
-You will get a JSON response like this:
+### ✅ Sample Response
 
 ```
 {
-    "id": "64747cae67e43f0f33a3a08b",
-    "status": "Q",
-    "inittime": "2023-05-29T10:22:33.895",
-    "logsdeleledby": "2023-06-28T10:22:33.895",
-    "attachments": [
-        "https://cdn.queuemail.dev/static/sendings/7723743-34838743-34343/c.xml"
-    ],
-    "log": [],
-    "opened": []
+  "id": "64747cae67e43f0f33a3a08b",
+  "status": "Q",
+  "inittime": "2023-05-29T10:22:33.895",
+  "logsdeleledby": "2023-06-28T10:22:33.895",
+  "attachments": [
+    "https://cdn.queuemail.dev/static/sendings/7723743-34838743-34343/c.xml"
+  ],
+  "log": [],
+  "opened": []
 }
 ```
 
-- **status** = 
-    - 'Q' means email has been queued up correctly. 
-    - 'R' means email is been sent at now. 
-    - 'C' means email has been cancelled. 
-    - 'E' means email send has failled. 
-    - 'F' means email has been sent sucessfully.
-- **inittime** is the estimated time for sending email.
-- **logsdeleledby** it the time when email logs will be deleted.
-- **attachments** array with all url attachments.
-- **blacklisted** array with all recipient emails addresses blacklisted.
-- **autoblacklisted** array with all recipient emails addresses auto-blacklisted.
-- **notvalidrecipients** array with all recipient not valid emails addresses.
-- **log** array with all log email information.
-- **opened** array with all recipient emails time addresses & open time.
+### 📘 Notes
 
+- `status`:  
+  - `Q` – Queued  
+  - `R` – Sending in progress  
+  - `C` – Cancelled  
+  - `E` – Failed  
+  - `F` – Successfully sent  
+- `log` – Log entries  
+- `opened` – Opened email events (with timestamp)
 
+---
 
+## ⛔ Cancel an Email
 
-<!-- tab:Cancel an email send -->
+**Endpoint:**  
+`POST /private/emails/cancel`
 
+### 🔹 Parameters
 
+| Parameter  | Description   | Required | Default |
+|------------|---------------|----------|---------|
+| `idemail`  | Email ID      | ✅ Yes   | –       |
 
+### 🧾 Status Codes
 
-**REQUEST:** 
+Same as above.  
+**Specific errors:**
 
-*POST* /private/emails/cancel
+1. Some recipients already processed  
+2. Email not found  
+3. App not found  
+4. Sending finished or in progress – cannot be cancelled
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idemail | Email id | Yes |  |
-
-**STATUS CODES:**
-
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-
-Specific errors:
-
-1. Some recipients have been processed. Sending cannot be cancelled
-2. Mail not found
-3. App not found
-4. Sending finished or in process. It cannot be cancelled
-
-
-
-
-
-**RESPONSE:**
-
-
-You will get a JSON response like this:
+### ✅ Sample Response
 
 ```
 {
-    "id": "64747cae67e43f0f33a3a08b",
-    "status": "C",
-    "inittime": "2023-05-29T10:22:33.895",
-    "logsdeleledby": "2023-06-28T10:22:33.895",
-    "attachments": [
-        "https://cdn.queuemail.dev/static/sendings/b74fdc8e-eab3-4aa9-b72d-0ec21fa2368b/c.xml"
-    ]
+  "id": "64747cae67e43f0f33a3a08b",
+  "status": "C",
+  "inittime": "2023-05-29T10:22:33.895",
+  "logsdeleledby": "2023-06-28T10:22:33.895",
+  "attachments": [
+    "https://cdn.queuemail.dev/static/sendings/b74fdc8e-eab3-4aa9-b72d-0ec21fa2368b/c.xml"
+  ]
 }
 ```
 
-**status** field = C means the email send has been canceled.
+- `status = C` means the email was successfully cancelled.
 
+---
 
+## 🗑️ Remove a Finished Email
 
-<!-- tab:Remove an email -->
+Removes a sent email along with logs and tracking info.
 
-Remove a finished email. Also remove all logs and tracking info.
+**Endpoint:**  
+`POST /private/emails/remove`
 
-**REQUEST:** 
+### 🔹 Parameters
 
+| Parameter  | Description | Required | Default |
+|------------|-------------|----------|---------|
+| `idemail`  | Email ID    | ✅ Yes   | –       |
 
-*POST* /private/emails/remove
+### 🧾 Status Codes
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idemail | SMTP id | Yes |  |
+Same as above.  
+**Specific errors:**
 
-**STATUS CODES:**
-
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-Specific errors:
-
-1. Mail not found
-2. App not found
+1. Email not found  
+2. App not found  
 3. Unfinished sendings cannot be removed
 
+### ✅ Response
 
-
-**RESPONSE:**
-
-*empty*
-
-<!-- tabs:end -->
-
+Returns an empty response on success.

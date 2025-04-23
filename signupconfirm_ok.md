@@ -1,7 +1,9 @@
-### YOUR ACCOUNT HAS BEEN ACTIVATED!
+### ✅ Your Account Has Been Activated!
 
-We have sent you an email with your password.
+We’ve sent you an email with your password.
 
-Please, check your junk mail / SPAM folder too!.
+> 📬 Don’t forget to check your **junk mail** or **spam folder** just in case.
 
-## <a href="https://queuemail.dev/qmadmin/">LOGIN NOW HERE</a> ##
+---
+
+## 👉 [LOGIN NOW](https://queuemail.dev/qmadmin/)

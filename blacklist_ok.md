@@ -1,1 +1,1 @@
-### Address was added to blacklist sucessfully.
+### ✅ Address was successfully added to the blacklist.

@@ -1,5 +1,5 @@
-### UPS!
+### ⚠️ Oops!
 
-Your sign up request has failed.
+Your sign-up request has failed.
 
-If you think this is an error, please, contact info@queuemail.dev
+If you believe this was an error, please contact us at [info@queuemail.dev](mailto:info@queuemail.dev).

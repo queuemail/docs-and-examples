@@ -1,21 +1,43 @@
-### What happens if there are network outages or server downtime while calling QUEUEMAIL.DEV API?
+## ❓ Frequently Asked Questions
 
-The solution is to implement a local queue to store failed emails when QUEUEMAIL.DEV does not respond.
+---
 
-[Hardy client example](examples-hardyservice.md) shows you how to implement this local queue.
+### ⚠️ What happens if there are network outages or QUEUEMAIL.DEV is temporarily unavailable?
 
-### How many requests can I do?
+To ensure reliability during outages or temporary API downtimes, we recommend implementing a **local queue** that stores emails and retries them later when the service is back online.
 
-QUEUEMAIL.DEV servers implement protections against brute force or DDoS attacks so it is a good idea to space out your API requests by at least 1 second. No problem if you make more requests in 1 second, the protection system evaluates other parameters to find out if it is an attack or a normal use API but in any case we recommend that you always implement a [robust sending with local queue](examples-hardyservice.md) so that if at any moment your source IP is temporarily banned, local queue will take care to retry pending emails.
+You can see a practical implementation of this in the  
+👉 [Hardy Client Example](examples-hardyservice.md)
 
-### Can I send emails using my custom domain email address?
+---
 
-* With free tier: 
-    - You can use a SMTP server from your own domain and you can send without problems using addresses from that domain.
+### 📈 How many API requests can I make?
 
-    Or..
+QUEUEMAIL.DEV uses built-in protections against brute force and DDoS attacks.
 
-    - Some SMTP servers like Gmail/Google allows you to send emails using your email address. Follow the instructions for each SMTP server to set up sending with your custom domain.
+- While it’s generally safe to make **more than one request per second**, we **recommend spacing out your requests** by at least 1 second.
+- The system analyzes various parameters to distinguish normal usage from potential abuse.
 
-* With profesional custom Queuemail SMTP servers: We will send you instructions to make domain DNS zone changes in order you can send emails using your custom domain.
+**Best practice:**  
+Always implement a [robust sending mechanism with a local queue](examples-hardyservice.md).  
+If your IP gets temporarily blocked, the local queue will automatically retry sending the pending emails.
 
+---
+
+### 📬 Can I send emails using my own domain?
+
+#### ✅ Free Tier
+
+You have two options:
+
+1. **Use your own SMTP server** for your domain — you can freely send emails using addresses from that domain.
+
+2. **Use third-party SMTP providers** (like Gmail/Google) that support custom "From" addresses.  
+   Follow their specific configuration instructions to enable sending from your domain.
+
+#### 🚀 Professional Queuemail SMTP
+
+With a custom plan using Queuemail’s professional SMTP servers, you’ll receive instructions for configuring your **domain’s DNS settings** (e.g., SPF, DKIM, DMARC).  
+This allows you to send authenticated emails from your custom domain with full compliance.
+
+---

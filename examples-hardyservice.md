@@ -1,46 +1,51 @@
 
-### Hardy Client: A robust Java client to use QUEUEMAIL.DEV API
+## 💻 Hardy Client: A Robust Java Client for the QUEUEMAIL.DEV API
 
-What happens if there are network outages or server downtime while calling QUEUEMAIL.DEV API?
+### 📌 What if QUEUEMAIL.DEV is temporarily unavailable?
 
-The solution is to implement a local queue to store failed emails when QUEUEMAIL.DEV does not respond.
+In scenarios such as **network outages** or **API downtime**, your application should gracefully handle failed requests.  
+A recommended approach is to implement a **local fallback queue** to store emails that couldn't be sent and retry them later.
 
-For this example we will use a Spring Boot project similar to [queuemail-client: A basic Java client to use QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client) and we set the following properties at *application.properties* file:
+---
+
+### ⚙️ Project Setup (Spring Boot)
+
+In this example, we'll use a Spring Boot project similar to  
+👉 [queuemail-client: A basic Java client for the QUEUEMAIL.DEV API](https://github.com/queuemail/docs-and-examples/tree/main/queuemail-client)
+
+In your `application.properties` file, configure the following credentials:
 
 ```
 queuemail.username=******
 queuemail.password=******
 queuemail.idapp=******
-
 ```
 
-Values of these properties are username and password of your QUEUEMAIL.DEV account and the app id are you going to use. You can create your app with [apps endpoint](api-apps.md).
+- `username` and `password`: Your QUEUEMAIL.DEV account credentials  
+- `idapp`: The ID of the app you’ll be using (create it via the [Apps Endpoint](api-apps.md))
 
-Now, we are going to use these DTO's:
+---
 
-LogDTO.java:
+Create the following DTO to handle email log data returned by QUEUEMAIL:
 
 ```
 package miapp.queuemail.dto;
 
-
 import java.time.LocalDateTime;
 
-public class LogDTO
-{
+public class LogDTO {
+
     private String to;
     private String resultcode;
     private LocalDateTime when;
 
     private String _id;
-
     private String idsending;
-
     private String idsmtp;
-
     private String idapp;
-
     private LocalDateTime created;
+
+    // Getters and Setters
 
     public String getTo() {
         return to;
@@ -106,16 +111,14 @@ public class LogDTO
         this.created = created;
     }
 }
-
 ```
 
-LoginResponseDTO.java:
+This DTO represents the response from the login endpoint:
 
 ```
 package miapp.queuemail.dto;
 
-public class LoginResponseDTO
-{
+public class LoginResponseDTO {
 
     private String token;
     private String role;
@@ -162,46 +165,44 @@ public class LoginResponseDTO
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
-
 }
-
 ```
 
-SendingResultDTO.java:
+Used for capturing the full result of a send operation, including logs and tracking:
+
 ```
 package miapp.queuemail.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SendingResultDTO
-{
-    String id;
-    String status;
-    LocalDateTime inittime;
-    LocalDateTime logsdeleledby;
-    List<String> attachments;
+public class SendingResultDTO {
 
+    private String id;
+    private String status;
+    private LocalDateTime inittime;
+    private LocalDateTime logsdeleledby;
+    private List<String> attachments;
 
-    List<String> blacklisted;
-    List<String> autoblacklisted;
-    List<String> notvalidrecipients;
+    private List<String> blacklisted;
+    private List<String> autoblacklisted;
+    private List<String> notvalidrecipients;
 
-    List<LogDTO> log;
-    List<TrackingDTO> opened;
-    LocalDateTime finishtime;
+    private List<LogDTO> log;
+    private List<TrackingDTO> opened;
+    private LocalDateTime finishtime;
 
-    String error;
-    Boolean localqueued;
+    private String error;
+    private Boolean localqueued;
 
-    public SendingResultDTO() {
-        super();
-    }
+    public SendingResultDTO() {}
 
-    public SendingResultDTO(String id, String status, LocalDateTime inittime, LocalDateTime logsdeleledby, List<String> attachments, List<String> blacklisted, List<String> autoblacklisted, List<String> notvalidrecipients, List<LogDTO> log, List<TrackingDTO> opened, LocalDateTime finishtime, String error) {
+    public SendingResultDTO(String id, String status, LocalDateTime inittime, LocalDateTime logsdeleledby,
+                            List<String> attachments, List<String> blacklisted, List<String> autoblacklisted,
+                            List<String> notvalidrecipients, List<LogDTO> log, List<TrackingDTO> opened,
+                            LocalDateTime finishtime, String error) {
         this.id = id;
         this.status = status;
         this.inittime = inittime;
@@ -217,153 +218,38 @@ public class SendingResultDTO
         this.localqueued = false;
     }
 
-    public SendingResultDTO(String error)
-    {
+    public SendingResultDTO(String error) {
         this.error = error;
         this.localqueued = false;
     }
 
-    public SendingResultDTO(String error, Boolean localqueued)
-    {
+    public SendingResultDTO(String error, Boolean localqueued) {
         this.error = error;
         this.localqueued = localqueued;
     }
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public List<String> getBlacklisted() {
-        return blacklisted;
-    }
-
-    public void setBlacklisted(List<String> blacklisted) {
-        this.blacklisted = blacklisted;
-    }
-
-    public List<String> getAutoblacklisted() {
-        return autoblacklisted;
-    }
-
-    public void setAutoblacklisted(List<String> autoblacklisted) {
-        this.autoblacklisted = autoblacklisted;
-    }
-
-    public List<String> getAttachments() {
-        return attachments;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getInittime() {
-        return inittime;
-    }
-
-    public void setInittime(LocalDateTime inittime) {
-        this.inittime = inittime;
-    }
-
-    public List<LogDTO> getLog() {
-        return log;
-    }
-
-    public void setLog(List<LogDTO> log) {
-        this.log = log;
-    }
-
-    public List<TrackingDTO> getOpened() {
-        return opened;
-    }
-
-    public void setOpened(List<TrackingDTO> opened) {
-        this.opened = opened;
-    }
-
-    public LocalDateTime getFinishtime() {
-        return finishtime;
-    }
-
-    public void setFinishtime(LocalDateTime finishtime) {
-        this.finishtime = finishtime;
-    }
-
-    public void setAttachments(List<String> attachments) {
-        this.attachments = attachments;
-    }
-
-    public List<String> getNotvalidrecipients() {
-        return notvalidrecipients;
-    }
-
-    public void setNotvalidrecipients(List<String> notvalidrecipients) {
-        this.notvalidrecipients = notvalidrecipients;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public LocalDateTime getLogsdeleledby() {
-        return logsdeleledby;
-    }
-
-    public void setLogsdeleledby(LocalDateTime logsdeleledby) {
-        this.logsdeleledby = logsdeleledby;
-    }
-
-    public Boolean getLocalqueued() {
-        return localqueued;
-    }
-
-    public void setLocalqueued(Boolean localqueued) {
-        this.localqueued = localqueued;
-    }
-
+    // Getters and Setters omitted for brevity (see original for full list)
 }
-
 ```
 
-TrackingDTO.java:
+Represents open or click tracking events tied to a specific email send operation:
+
 ```
 package miapp.queuemail.dto;
 
-
 import java.time.LocalDateTime;
 
-public class TrackingDTO
-{
+public class TrackingDTO {
+
     private String email;
     private LocalDateTime when;
-
     private String _id;
-
     private String idsending;
-
     private String idmailing;
-
-    private String type; //OPEN, CLICK
-
+    private String type; // OPEN or CLICK
     private String url;
-
     private LocalDateTime created;
-
     private String ip;
-
 
     public String getEmail() {
         return email;
@@ -437,12 +323,10 @@ public class TrackingDTO
         this.ip = ip;
     }
 }
-
 ```
 
-Now, we are going to define two entities to store failed emails in a local queue: 
+Next, we'll define two entities to store failed emails in a local queue: 
 
-QueueEmail.java:
 ```
 package miapp.queuemail.model;
 
@@ -710,7 +594,7 @@ public class QueueEmail
 }
 ```
 
-QueueEmailAttachment.java:
+
 ```
 package miapp.queuemail.model;
 
@@ -785,9 +669,8 @@ public class QueueEmailAttachment
 }
 ```
 
-Now, we are going to define repositories for these entities:
+Next, we'll define repositories for these entities:
 
-QueueEmailsRepository.java:
 ```
 package miapp.queuemail.repositories;
 
@@ -806,7 +689,7 @@ public interface QueueEmailsRepository extends MongoRepository<QueueEmail, Strin
 }
 ```
 
-QueueEmailAttachmentsRepository.java:
+
 ```
 package miapp.queuemail.repositories;
 
@@ -830,9 +713,8 @@ public interface QueueEmailAttachmentsRepository extends MongoRepository<QueueEm
 
 ```
 
-Now, we will define the service with only two API operations (login and send emails) and a scheduled method in order to process our local queue:
+Now we'll implement the service layer, featuring two API endpoints (login and send emails) and a scheduled task to handle the local queue processing:
 
-QueuemailHardyService.java:
 
 ```
 package miapp.queuemail.dev.service;
@@ -1217,13 +1099,13 @@ public class QueuemailHardyService
 
 ```
 
-At this point we have all the necessary code to replace our usual way to send emails:
+At this stage, the implementation is complete and ready to replace our existing email delivery mechanism:
 
 ```
 SendEmail.send( fromemail, toemail, subject, body );
 ````
 
-with our new and more robust way:
+with a more reliable implementation:
 
 ```
         @Autowired
@@ -1242,6 +1124,6 @@ with our new and more robust way:
 			SendEmail.send( fromemail, toemail, subject, body ); // we will send using usual way as failover
 		}
 ```
-You can made more control on email status, code errors, etc. Also yo can control how many times emails are retried in the local queue using the *SendingResultDTO.numretries* field.
+This approach allows for enhanced monitoring of email statuses, error codes, and retry attempts. The number of retries for each email in the local queue can be configured via the *SendingResultDTO.numretries* field.
 
 

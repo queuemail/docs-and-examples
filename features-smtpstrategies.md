@@ -1,25 +1,14 @@
-You can improve app fault tolerance if you define several SMTP servers. 
+## Improving Fault Tolerance with Multiple SMTP Servers
 
-Thus, if a SMTP fails, then the app will retry to send emails with another one.
+You can increase your application's fault tolerance by configuring multiple SMTP servers.
 
-When [creating/editing your app](api-apps.md), you can choose beetween RANDOM and PRIORITY strategies for SMTP selection. 
+If one SMTP server fails, the system will automatically attempt to resend the email using an alternative server.
 
-If you don't specify *strategy* parameter, RANDOM strategy is assumed by default.
+When [creating or editing your app](api-apps.md), you can choose between two SMTP selection strategies: **RANDOM** and **PRIORITY**.
 
-If you specify *strategy=PRIORITY*, when sending emails, SMTP server with higher priority will be use at first. In case of error, next SMTP with higher priority will be used, and so on.
+- If no `strategy` parameter is specified, the **RANDOM** strategy is used by default.
+- If `strategy=PRIORITY` is specified, the email will first attempt to send using the SMTP server with the highest priority. If that server fails, the next highest-priority server is used, and so on.
 
-You can define priority for each SMTP when [creating/editing your SMTP servers](api-smtps.md).
+You can assign a priority level to each SMTP server when [creating or editing your SMTP configuration](api-smtps.md).
 
-With *strategy=RANDOM* also any SMTP server are used in case of error using the previous one, but they are randomly selected.
-
-
-
-
-
-
-
-
-
-
-
-
+With the **RANDOM** strategy, a different SMTP server is selected at random if the previous one fails, providing a simple form of load distribution and redundancy.

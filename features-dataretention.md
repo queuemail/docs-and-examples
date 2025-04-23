@@ -1,21 +1,56 @@
-Apps, by default, just retain subject and body data **until email is sucessfully sent**. Then, these data are permanently removed.
+## 🔒 Data Retention & Privacy Policy
 
-That is, apps, by default, remove all sensitive information due to privacity reasons.
+By default, QUEUEMAIL.DEV apps **only retain the subject and body of an email until it has been successfully sent**.  
+Once delivery is confirmed, this sensitive data is **permanently deleted** to ensure privacy.
 
-If you want to retain these data permanently you must check *Retain sensitive info* when [creating/editing your app](api-apps.md).
+This default behavior is designed to minimize sensitive data storage and enhance data protection.
 
-Keep in mind that if you use *attachmenttype=URL* when you [send an email](api-emails.md) attachments data will be kept for a while [depending on your plan](api-limitations.md). 
+---
 
-Therefore, if you want to guarantee complete privacy then you shoud use *attachmenttype=FILE*.
+### 🧾 Want to Retain Sensitive Email Content?
 
-In any case, if you want to **immediately delete all information related to the sending** you must use API endpoint [/private/emails/remove](api-emails.md).
+If you want to **retain subject and body data permanently**, you must check the option  
+**_Retain sensitive info_** when [creating or editing your app](api-apps.md).
 
-Due to traceability reasons, we do not remove any email address (until system delete them [depending on your plan](api-limitations.md)).
+---
 
-If you are looking for total privacy, we suggest that you use your own database by [contracting a professional plan with us](api-limitations.md).
+### 📎 Attachments and Privacy
 
-Please, read our [private policy](legal-privatepolicy.md) for more info about data privacy. 
+- If you use `attachmenttype=URL` when [sending an email](api-emails.md), attachment data will be temporarily stored — the duration depends on your [current plan](api-limitations.md).
+- For **maximum privacy**, we recommend using `attachmenttype=FILE`, which avoids storing external URLs on our infrastructure.
 
+---
 
+### 🧹 Immediate Data Deletion
 
+To delete all data related to a sent email **immediately**, use the following endpoint:
 
+```
+/private/emails/remove
+```
+
+Refer to the [Email API documentation](api-emails.md) for usage details.
+
+---
+
+### 📧 Email Address Retention
+
+For traceability purposes, **email addresses are not deleted immediately** — they are retained based on your [plan’s retention policy](api-limitations.md).
+
+---
+
+### 🔐 Full Privacy Option
+
+If you're looking for **total privacy and full control** over your data:
+
+- Host your own database
+- Retain or delete data on your terms
+- Ensure no external access to sensitive content
+
+👉 This is available by [subscribing to a professional plan](api-limitations.md).
+
+---
+
+### 📄 Learn More
+
+See our [Privacy Policy](legal-privatepolicy.md) for full details on how your data is handled.

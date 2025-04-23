@@ -1,20 +1,25 @@
+## 🚀 Getting Started with the QUEUEMAIL API
 
+To start using the QUEUEMAIL API, you must first [register for an account](https://queuemail.dev/qmadmin/register).
 
-For accessing QUEUEMAIL API you need to <a target="_blank" href="https://queuemail.dev/qmadmin/register">register here</a>. 
+### ✅ Steps to Access the API
 
-Then, you need to follow these steps:
+1. **Log in** to the [Control Panel](https://queuemail.dev/qmadmin/) using your username and password.
 
-1. Log in <a target="_blank" href="https://queuemail.dev/qmadmin/">control panel</a> using your username and password, 
+2. **[Create an App](api-apps.md)** in the Control Panel.  
+   Each app will generate a unique **App ID**, which is required for all API requests.
 
-2. [Create an app from control panel](api-apps.md). Each app has an ID you will use for API requests.
+3. **[Create at least one SMTP Server](api-smtps.md)** and associate it with your app.  
+   Each SMTP server will also have a unique **SMTP ID** needed for email-related API operations.
 
-3. [Create, at least, a SMTP server asociated to that app from control panel](api-smtps.md). Each SMTP server has an ID you will use for API requests.
+4. **[Log in via the API](api-login.md)** using your username and password to obtain a **Bearer Token**.  
+   This token is required in the `Authorization` header of all API requests.
 
-4. Then, with your user and password you can [login](api-login.md) and get a token you will use in all API operations.
+> ⏱ **Token Expiration:** 24 hours
 
-Token expiration = 24 hours.
+---
 
-### API endpoint base URL:
+### 🌐 Base API Endpoint
 
 https://api.queuemail.dev/api 
 

@@ -1,249 +1,191 @@
-You need to create at least an app to use QUEUEMAIL. 
+## 📦 Apps Management
 
-Each app should correspond to a project or project part which has different behaviour.
+To use the QUEUEMAIL API, you must first create at least one **App**.
+
+Each App represents a project or sub-project, allowing you to define specific configurations and behaviors.
+
+---
 
 <!-- tabs:start -->
 
-<!-- tab:Create/edit an app -->
+<!-- tab:Create or Edit an App -->
 
+### 🛠️ Create or Edit an App
 
-**REQUEST:** 
+**Endpoint:**  
+`POST /private/apps/save`
 
-*POST* /private/apps/save
+#### 🔹 Parameters
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes for editing, No for creating |  |
-|name | App name  | Yes for creating, No for editing |  |
-|retaindata | If this app must preserve subject, body and url attachments | No | No |
-|strategy | RANDOM / PRIORITY  | No  | RANDOM |
-|originserver | If set, you can make calls just from this servers/IPs (comma separated for multiple values) | No  |
-|defaultfromemail | Default from email when sending emails | No | User's email |
-|defaultfromname | Default from name when sending emails | No | User's email |
-|testemail | Recipient email for testing emails  | No | User's email |
-|timebetweenemails | Seconds between emails  | No | 60 |
-|useblacklist | If this app must use black list  | No | No |
-|useautoblacklist | If this app must use auto black list  | No | No |
-|webhook_sending_finished | URL called when email send finish sucessfully  | No |
-|webhook_sending_error | URL called when email send fails  | No |
-|webhook_tracking_opened | URL called when email is opened  | No |
-|webhook_tracking_clicked | URL called when when link in email is clicked | No |
-|webhook_blacklisted_added | URL called when email address is added to blacklist | No |
+| Parameter                   | Description                                                                 | Required                  | Default         |
+|----------------------------|-----------------------------------------------------------------------------|---------------------------|-----------------|
+| `idapp`                    | App ID (use for editing)                                                    | Yes (for edit), No (new)  | –               |
+| `name`                     | App name                                                                    | Yes (for create)          | –               |
+| `retaindata`               | Retain subject, body, and URL attachments                                   | No                        | false           |
+| `strategy`                 | SMTP selection strategy: `RANDOM` or `PRIORITY`                             | No                        | RANDOM          |
+| `originserver`             | Limit allowed IPs/hosts (comma-separated)                                   | No                        | –               |
+| `defaultfromemail`         | Default "From" email address for sends                                      | No                        | User's email    |
+| `defaultfromname`          | Default "From" name                                                         | No                        | User's email    |
+| `testemail`                | Test recipient email                                                        | No                        | User's email    |
+| `timebetweenemails`        | Minimum seconds between sends                                               | No                        | 60              |
+| `useblacklist`             | Enable blacklist                                                            | No                        | false           |
+| `useautoblacklist`         | Enable auto-blacklist                                                       | No                        | false           |
+| `webhook_sending_finished`| URL called on successful send                                               | No                        | –               |
+| `webhook_sending_error`   | URL called when send fails                                                  | No                        | –               |
+| `webhook_tracking_opened` | URL called when email is opened                                             | No                        | –               |
+| `webhook_tracking_clicked`| URL called when a link is clicked                                           | No                        | –               |
+| `webhook_blacklisted_added`| URL called when address is blacklisted                                     | No                        | –               |
 
-**STATUS CODES:**
+#### 🧾 Status Codes
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
+| Code | Description                        |
+|------|------------------------------------|
+| 200  | Success                            |
+| 400  | Missing or invalid parameter       |
+| 401  | Unauthorized                       |
+| 403  | Invalid credentials                |
+| 406  | Specific error (see below)         |
+| 500  | Internal server error              |
 
-Specific errors:
+**Specific Errors:**
 
-1. Already exists an APP with the same name
-2. App not found
-3. Must provide a name
+1. An app with the same name already exists  
+2. App not found  
+3. App name is required
 
+#### ✅ Sample Response
 
-
-**RESPONSE:**
-
-You will get a JSON response like this:
-
-```
+```json
 {
-    "token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2M2JiZTU4NmRkMDcwYjc4ZmI0OTVlZDIiLCJzdWIiOiJ1c2VyMSIsImF1ZCI6InVzZXIiLCJpc3MiOiJDSS0xNTFhY2U2OS1kZTkyLTQwYjQtYmY5NC04OGRmZWIzNTc1ZjQiLCJpYXQiOjE2ODQ3NDg0MTUsImV4cCI6MTY4NDgzNDgxNX0.CcNyo8Ug45dNLNZ0Q41wpPObrFI-hagaJdat3ryxqdo",
-    "role": "user",
-    "userId": "63bbe586dd070b78fb495ed2",
-    "username": "username",
-    "clientId": "CI-151ace69-de92-40b4-bf94-88dfeb3575f4"
+  "token": "eyJhbGciOiJIUzI1NiJ9...",
+  "role": "user",
+  "userId": "63bbe586dd070b78fb495ed2",
+  "username": "username",
+  "clientId": "CI-151ace69-de92-40b4-bf94-88dfeb3575f4"
 }
 ```
 
-Now, you can use the value of **token** field in header *Authorization* in all API operations as a Bearer token:
+Use the `token` value in the **Authorization** header for all future API calls:
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2M2JiZTU4NmRkMDcwYjc4ZmI0OTVlZDIiLCJzdWIiOiJ1c2VyMSIsImF1ZCI6InVzZXIiLCJpc3MiOiJDSS0xNTFhY2U2OS1kZTkyLTQwYjQtYmY5NC04OGRmZWIzNTc1ZjQiLCJpYXQiOjE2ODQ3NDg0MTUsImV4cCI6MTY4NDgzNDgxNX0.CcNyo8Ug45dNLNZ0Q41wpPObrFI-hagaJdat3ryxqdo
+Authorization: Bearer <your-token-here>
 ```
-<!-- tab:List all apps -->
 
+---
 
+<!-- tab:List All Apps -->
 
-**REQUEST:** 
+### 📋 List All Apps
 
-*GET* /private/apps/findAll
+**Endpoint:**  
+`GET /private/apps/findAll`
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|page | Initial page | Yes |  |
-|size | Page máximun size | Yes |  |
+#### 🔹 Parameters
 
-**STATUS CODES:**
+| Parameter | Description       | Required | Default |
+|----------|-------------------|----------|---------|
+| `page`   | Page number        | ✅ Yes   | –       |
+| `size`   | Page size (limit)  | ✅ Yes   | –       |
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
+#### 🧾 Status Codes
 
+Same as above.
 
+#### ✅ Sample Response
 
-**RESPONSE:**
-
-
-You will get a JSON response like this:
-
-```
+```json
 {
-    "content": [
-        {
-            "_id": "63ca50f0c9557c7ac25f1715",
-            "iduser": "63bbe586dd070b78fb495ed2",
-            "name": "APP2",
-            "strategy": "PRIORITY",
-            "origindomain": null,
-            "defaultfromemail": "user1@email.xxx",
-            "defaultfromname": "Jonh Smith",
-            "testemail": "user1@email.xxx",
-            "timebetweenemails": 0,
-            "useblacklist": true,
-            "useautoblacklist": false,
-            "webhook_sending_finished": null,
-            "webhook_sending_error": null,
-            "webhook_tracking_opened": null,
-            "webhook_tracking_clicked": null,
-            "webhook_blacklisted_added": null,
-            "webhook_mailing_finished": null,
-            "language": "EN",
-            "created": "2023-01-20T08:29:36.763",
-            "modified": "2023-01-20T08:29:36.763",
-            "status": "A"
-        }
-    ],
-    "pageable": {
-        "sort": {
-            "empty": true,
-            "sorted": false,
-            "unsorted": true
-        },
-        "offset": 1,
-        "pageNumber": 1,
-        "pageSize": 1,
-        "paged": true,
-        "unpaged": false
-    },
-    "last": false,
-    "totalPages": 6,
-    "totalElements": 6,
-    "size": 1,
-    "number": 1,
-    "sort": {
-        "empty": true,
-        "sorted": false,
-        "unsorted": true
-    },
-    "first": false,
-    "numberOfElements": 1,
-    "empty": false
+  "content": [
+    {
+      "_id": "63ca50f0c9557c7ac25f1715",
+      "iduser": "63bbe586dd070b78fb495ed2",
+      "name": "APP2",
+      "strategy": "PRIORITY",
+      "defaultfromemail": "user1@email.xxx",
+      "defaultfromname": "Jonh Smith",
+      "testemail": "user1@email.xxx",
+      "timebetweenemails": 0,
+      "useblacklist": true,
+      "useautoblacklist": false,
+      "language": "EN",
+      "created": "2023-01-20T08:29:36.763",
+      "modified": "2023-01-20T08:29:36.763",
+      "status": "A"
+    }
+  ],
+  "pageable": {
+    "pageNumber": 1,
+    "pageSize": 1
+  },
+  "totalPages": 6,
+  "totalElements": 6
 }
 ```
 
-Field **content** is a list containing all the existing apps for the logged account.
+- The `content` array lists all apps for the authenticated user.
 
+---
 
-<!-- tab:App info -->
+<!-- tab:Get App Info -->
 
+### 🔍 Get App Details by ID
 
+**Endpoint:**  
+`GET /private/apps/findById`
 
+#### 🔹 Parameters
 
-**REQUEST:** 
+| Parameter | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `idapp`  | App ID      | ✅ Yes   | –       |
 
-*GET* /private/apps/findById
+#### ✅ Sample Response
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
-
-**STATUS CODES:**
-
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|500 | Internal error|
-
-
-
-**RESPONSE:**
-
-
-You will get a JSON response like this:
-
-```
+```json
 {
-    "_id": "63ca50f0c9557c7ac25f1715",
-    "iduser": "63bbe586dd070b78fb495ed2",
-    "name": "APP2",
-    "strategy": "PRIORITY",
-    "origindomain": null,
-    "defaultfromemail": "user2@xxx.xxx",
-    "defaultfromname": "Jonh Smith",
-    "testemail": "user2@xxx.xxx",
-    "timebetweenemails": 0,
-    "useblacklist": true,
-    "useautoblacklist": false,
-    "webhook_sending_finished": null,
-    "webhook_sending_error": null,
-    "webhook_tracking_opened": null,
-    "webhook_tracking_clicked": null,
-    "webhook_blacklisted_added": null,
-    "webhook_mailing_finished": null,
-    "language": "EN",
-    "created": "2023-01-20T08:29:36.763",
-    "modified": "2023-01-20T08:29:36.763",
-    "status": "A"
+  "_id": "63ca50f0c9557c7ac25f1715",
+  "name": "APP2",
+  "strategy": "PRIORITY",
+  "defaultfromemail": "user2@xxx.xxx",
+  "defaultfromname": "Jonh Smith",
+  "testemail": "user2@xxx.xxx",
+  "timebetweenemails": 0,
+  "useblacklist": true,
+  "useautoblacklist": false,
+  "language": "EN",
+  "created": "2023-01-20T08:29:36.763",
+  "modified": "2023-01-20T08:29:36.763",
+  "status": "A"
 }
 ```
 
+---
 
+<!-- tab:Delete an App -->
 
-<!-- tab:Delete an app -->
+### 🗑️ Delete an App
 
-**REQUEST:** 
+**Endpoint:**  
+`POST /private/apps/remove`
 
+#### 🔹 Parameters
 
-*POST* /private/apps/remove
+| Parameter | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `idapp`  | App ID      | ✅ Yes   | –       |
 
-|Parameter|Description|Required| Default |
-|---------|-----------|--------|---------|
-|idapp | App id | Yes |  |
+#### 🧾 Status Codes
 
-**STATUS CODES:**
+Same as above.
 
-|Code|Description|
-|----|-------|
-|200 | Success |
-|400 | Missing required parameter or wrong parameter type |
-|401 | User not authorized |
-|403 | Credentials not valid |
-|406 | Specific error |
-|500 | Internal error|
-
-Specific errors:
+**Specific Errors:**
 
 1. App not found
 
+#### ✅ Response
 
-**RESPONSE:**
+Returns an empty body on success.
 
-*empty*
+---
 
 <!-- tabs:end -->
-

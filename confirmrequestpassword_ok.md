@@ -1,8 +1,9 @@
-### You have a new password now!
+## 🔐 Your Password Has Been Reset!
 
-Please, check your mail inbox (also junk mail folder) to get your new password.
+Please check your **email inbox** (and also your **spam/junk folder**) for your new password.
 
-Make sure to update it in your API login calls!
+> ⚠️ Don't forget to update your API login calls with the new password!
 
-## <a href="https://queuemail.dev/qmadmin/">LOGIN NOW HERE</a> ##
+---
 
+## 👉 [LOGIN NOW](https://queuemail.dev/qmadmin/)

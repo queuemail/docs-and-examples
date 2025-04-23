@@ -1,17 +1,27 @@
-Blacklists feature let recipients to include their email addresses in a blacklist in order to block send future emails from app asociated to that blacklist.
+## 🛑 Blacklist and Auto-Blacklist Features
 
-Also, the system can include a email address in a auto-blacklist when it detects that email address has permanent errors.
+The blacklist feature allows recipients to opt out of future emails by adding their email address to a blacklist.  
+This prevents the associated app from sending them any more emails.
 
-That is, each app can contain a blacklist and an auto-blacklist. 
+In addition, QUEUEMAIL.DEV supports **auto-blacklisting**:  
+When the system detects that an email address consistently returns **permanent errors**, it will automatically be added to the app’s auto-blacklist.
 
-For activating blacklist feature you must use *useblacklist=true* when [creating/editing your app](api-apps.md).
+---
 
-For activating auto-blacklist feature you must use *useautoblacklist=true* when [creating/editing your app](api-apps.md).
+### 📌 How It Works
 
+- Each **App** can maintain both:
+  - A **Blacklist** (manually opted out by the recipient)
+  - An **Auto-Blacklist** (triggered by system-detected delivery failures)
 
+---
 
+### ✅ Activation
 
+To enable these features, configure the following options when [creating or editing your app](api-apps.md):
 
+- To enable manual blacklisting:  
+  `useblacklist=true`
 
-
-
+- To enable automatic blacklisting:  
+  `useautoblacklist=true`

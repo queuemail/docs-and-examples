@@ -1,3 +1,3 @@
 ### UPS!
 
-Your password request confirmation has failed.
+Password reset confirmation failed. Please try again.
